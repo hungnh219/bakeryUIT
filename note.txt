@@ -1,1 +1,18 @@
 start: 27/3
+
+xay dung ung dung thuong mai dien tu
+
+server: bat buoc su dunng express, mongodb, nodejs
+client: co the su dung reactjs hoac framework/thu vien khac
+
+chuc nang bat buoc:
+- thien thi thong tin san pham
+- chon danh muc: hien thi danh sach cac mat hang
+- chon mat hang => hien thi thong tin chi tiet
+- tim kiem
+- xay dung cac chuc nang dang ky, dang nhap, xu ly gio hang
+
+
+UI
+Trang chủ: có thêm 1 nút user ở bên trái (float action button) và 1 nút dùng để scroll lên ở bên phải)
+
