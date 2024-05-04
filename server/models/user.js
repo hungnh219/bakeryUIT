@@ -1,46 +1,87 @@
-const { default: mongoose } = require("mongoose");
+const mongoose = require('mongoose'); // Erase if already required
 const bcrypt = require('bcrypt')
-
+const crypto = require('crypto')
+// Declare the Schema of the Mongo model
 var userSchema = new mongoose.Schema({
-    firstname:{
-        type:String,
-        required:true,
+    firstname: {
+        type: String,
+        required: true,
     },
-    lastname:{
-        type:String,
-        required:true,
+    lastname: {
+        type: String,
+        required: true,
     },
-    email:{
-        type:String,
-        required:true,
-        unique:true,
+    email: {
+        type: String,
+        required: true,
+        unique: true
     },
-    password:{
-        type:String,
-        required:true,
+    avatar: {
+        type: String,
     },
-    role:{
-        type:String,
-        default: 'user',
+    mobile: {
+        type: String,
+        unique: true,
+        require: true
     },
-    cart: {
-        type: Array,
-        default: [],
+    password: {
+        type: String,
+        required: true,
     },
-    address: [{type: mongoose.Types.ObjectId,  ref: 'Address'}]
+    role: {
+        type: String,
+        enum: [1945, 1979],
+        default: 1979,
+    },
+    cart: [{
+        product: { type: mongoose.Types.ObjectId, ref: 'Product' },
+        quantity: Number,
+        color: String,
+        price: Number,
+        thumbnail: String,
+        title: String
+    }],
+    address: String,
+    wishlist: [{ type: mongoose.Types.ObjectId, ref: 'Product' }],
+    isBlocked: {
+        type: Boolean,
+        default: false
+    },
+    refreshToken: {
+        type: String,
+    },
+    passwordChangedAt: {
+        type: String
+    },
+    passwordResetToken: {
+        type: String
+    },
+    passwordResetExpires: {
+        type: String
+    },
+    registerToken: {
+        type: String
+    },
+}, {
+    timestamps: true
 });
 
-userSchema.pre('save', async function() {
-    // chi hash cac password moi
-    if (this.isModified()) {
-        const salt = bcrypt.genSaltSync(10);
-        this.password = await bcrypt.hash(this.password, salt);
+userSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) {
+        next()
     }
+    const salt = bcrypt.genSaltSync(10)
+    this.password = await bcrypt.hash(this.password, salt)
 })
-
 userSchema.methods = {
     isCorrectPassword: async function (password) {
-        return await bcrypt.compare(password, this.password);
+        return await bcrypt.compare(password, this.password)
+    },
+    createPasswordChangedToken: function () {
+        const resetToken = crypto.randomBytes(32).toString('hex')
+        this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex')
+        this.passwordResetExpires = Date.now() + 15 * 60 * 1000
+        return resetToken
     }
 }
 
