@@ -1,8 +1,19 @@
 import React, { memo } from "react";
 import icons from "ultils/icons";
 import logoFooter from "assets/uit-cake-logo-white.png";
+import { Link } from "react-router-dom";
+import { navigation } from "ultils/contants";
+import path from "ultils/path";
 
-const { MdEmail, MdLocationOn, RiPhoneFill } = icons;
+const {
+  MdEmail,
+  MdLocationOn,
+  RiPhoneFill,
+  FaFacebookSquare,
+  FaInstagram,
+  TbBrandShopee,
+  SiGrab,
+} = icons;
 const Footer = () => {
   return (
     <div className="w-full ">
@@ -27,27 +38,56 @@ const Footer = () => {
         </div>
       </div>
       <div className="h-[407px] w-full bg-gray-700 flex items-center justify-center text-white text-[13px]">
-        <div className="w-main flex">
-          <div className="flex-2 flex flex-col gap-2">
-            <img src={logoFooter} alt="logo-footer" className="w-64" />
-            <div className="px-2 flex flex-col gap-y-2 text-base mt-2">
+        <div className="w-main flex justify-between items-start">
+          <div className="relative flex flex-col gap-2 mt-[-18px]">
+            <img src={logoFooter} alt="logo-footer" className="w-52" />
+              <p className="absolute top-[42px] right-[-98px] font-bold tracking-[1px]">Tiệm bánh uy tín đến từ Châu Á</p>
+            <div className="px-3 opacity-70 text-xs flex flex-col gap-y-3 mt-2">
+              <h4 className="text-sm font-semibold">Thời gian hoạt động</h4>
+              <p>Thứ 2 - Thứ 7</p>
+              <p>7:30SA - 11:30CH</p>
+            </div>
+          </div>
+          <div className="">
+            <h3 className="mb-[20px] text-2xl font-bold">HỖ TRỢ</h3>
+            <div className="flex flex-col gap-y-3 opacity-70 text-xs mt-2">
+              <Link to={`${path.INTRODUCE}`}>Giới thiệu</Link>
+              <Link>Chính sách đổi trả</Link>
+              <Link>Điều khoản dịch vụ</Link>
+              <Link to={`${path.CONTACT}`}>Liên hệ</Link>
+            </div>
+          </div>
+          <div className="">
+            <div className="flex gap-x-4 items-start mb-6">
+              <FaFacebookSquare size={24} className="rounded border-2" />
+              <FaInstagram
+                size={24}
+                className="bg-white text-gray-700 rounded"
+              />
+              <TbBrandShopee
+                size={24}
+                className="bg-white text-gray-700 rounded"
+              />
+              <SiGrab size={24} className="bg-white text-gray-700 rounded" />
+            </div>
+            <div className="flex flex-col gap-y-2 text-xs mt-2">
               <div className="flex items-center gap-x-2">
-                <MdLocationOn className="text-3xl" />
+                <MdLocationOn size={24} />
                 <span className="opacity-70">
                   QL1A/1B 20, Khu Phố 6, Thủ Đức, Thành phố Hồ Chí Minh
                 </span>
               </div>
               <div className="flex items-center gap-x-2">
-                <RiPhoneFill className="text-3xl" />
+                <RiPhoneFill size={24} />
                 <span className="opacity-70">0706770436</span>
               </div>
               <div className="flex items-center gap-x-2">
-                <MdEmail className="text-3xl" />
+                <MdEmail size={24} />
                 <span className="opacity-70">uitcake@gmail.com</span>
               </div>
             </div>
           </div>
-          <div className="flex-1 flex flex-col gap-2">
+          {/* <div className="flex-1 flex flex-col gap-2">
             <h3 className="mb-[20px] text-[15px] font-medium border-l-2 border-white pl-[15px]">
               INFORMATION
             </h3>
@@ -56,8 +96,8 @@ const Footer = () => {
             <span>Store Location</span>
             <span>Today's Deals</span>
             <span>Contacts</span>
-          </div>
-          <div className="flex-1 flex flex-col gap-2">
+          </div> */}
+          {/* <div className="flex-1 flex flex-col gap-2">
             <h3 className="mb-[20px] text-[15px] font-medium border-l-2 border-white pl-[15px]">
               WHO WE ARE
             </h3>
@@ -66,12 +106,12 @@ const Footer = () => {
             <span>FAQs</span>
             <span>Return & Exchange</span>
             <span>Testimonials</span>
-          </div>
-          <div className="flex-1 flex flex-col gap-2">
+          </div> */}
+          {/* <div className="flex-1 flex flex-col gap-2">
             <h3 className="mb-[20px] text-[15px] font-medium border-l-2 border-main pl-[15px]">
               #DIGITALWORLDSTORE
             </h3>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
