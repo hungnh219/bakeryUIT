@@ -30,9 +30,9 @@ const TopHeaders = () => {
         })
     }, [mes])
     return (
-        <div className='w-full bg-main'>
-            <div className='h-10 flex items-center justify-center'>
-                {/* <div className='w-main flex items-center justify-between text-xs text-white'>
+        <div className=''>
+            {/* <div className='w-full bg-main h-10 flex items-center justify-center'>
+                <div className='w-main flex items-center justify-between text-xs text-white'>
                     <span>ORDER ONLINE OR CALL US (+1800) 000 8808</span>
                     {isLoggedIn && current
                         ? <div className=' flex gap-4 text-sm items-center'>
@@ -44,8 +44,8 @@ const TopHeaders = () => {
                             </span>
                         </div>
                         : <Link className='hover:text-gray-800' to={`/${path.LOGIN}`}>Sign In or Create Account</Link>}
-                </div> */}
-            </div>
+                </div>
+            </div> */}
         </div>
     )
 }

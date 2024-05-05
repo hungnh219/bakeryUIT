@@ -20,12 +20,12 @@ export const navigation = [
   {
     id: 4,
     value: "Giới thiệu",
-    path: `/${path.OUR_SERVICES}`,
+    path: `/${path.INTRODUCE}`,
   },
   {
     id: 5,
     value: "Liên hệ",
-    path: `/${path.FAQ}`,
+    path: `/${path.CONTACT}`,
   },
 ]
 const { RiTruckFill, BsShieldShaded, BsReplyFill, FaTty, AiFillGift } = icons

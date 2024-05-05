@@ -13,6 +13,7 @@ import {
   FaShoppingCart,
   FaFacebookSquare,
   FaInstagram,
+  FaCircle,
 } from "react-icons/fa";
 import {
   AiFillHome,
@@ -61,6 +62,7 @@ const icons = {
   FaInstagram,
   TbBrandShopee,
   SiGrab,
+  FaCircle,
 };
 
 export default icons;

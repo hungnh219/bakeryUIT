@@ -34,7 +34,7 @@ const Header = ({ dispatch }) => {
       <Navigation />
       <div className="flex text-[13px]">
         {!current ? (
-          <Link to={path.LOGIN} className="bg-main w-[148px] py-2 text-center text-xl text-white rounded hover:bg-[#f3c63f] hover:-translate-y-1 hover:scale-110 duration-300">
+          <Link to={`/${path.LOGIN}`} className="bg-main w-[100px] py-2 text-center text-sm text-white rounded hover:bg-[#f3c63f] hover:-translate-y-1 hover:scale-110 duration-300">
             Đăng nhập
           </Link>
         ) : (
@@ -43,18 +43,18 @@ const Header = ({ dispatch }) => {
               onClick={() => dispatch(showCart())}
               className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r"
             >
-              <FaShoppingCart className="text-3xl text-main hover:text-[#f3c63f] hover:-translate-y-1 hover:scale-110 duration-300" />
+              <FaShoppingCart className="text-2xl text-main hover:text-[#f3c63f] hover:-translate-y-1 hover:scale-110 duration-300" />
             </div>
             <div
               className="flex cursor-pointer items-center justify-center px-6 gap-2 relative"
               onClick={() => setIsShowOption((prev) => !prev)}
               id="profile"
             >
-              <FaUserCircle className="text-3xl text-main hover:text-[#f3c63f] hover:-translate-y-1 hover:scale-110 duration-300" />
+              <FaUserCircle className="text-2xl text-main hover:text-[#f3c63f] hover:-translate-y-1 hover:scale-110 duration-300" />
               {isShowOption && (
                 <div
                   onClick={(e) => e.stopPropagation()}
-                  className="absolute top-full flex-col flex left-[20px] bg-gray-100 border min-w-[150px]"
+                  className="absolute top-full flex-col flex left-[20px] bg-gray-100 border min-w-[150px] rounded"
                 >
                   <Link
                     className="p-2 w-full hover:bg-yellow-100"
