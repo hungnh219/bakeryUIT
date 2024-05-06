@@ -6,6 +6,7 @@ import {
   DealDaily,
   FeatureProducts,
   CustomSlider,
+  About
 } from "../../components"
 import { useSelector } from "react-redux"
 import icons from "../../ultils/icons"
@@ -30,13 +31,16 @@ const Home = ({ navigate }) => {
           <BestSeller />
         </div>
       </div>
+      <div className="w-full flex justify-center">
+        <About />
+      </div>
       <div className="my-8 w-main m-auto">
         <FeatureProducts />
       </div>
       <div className="my-8 w-main m-auto">
         <h3 className="text-[20px] font-semibold py-[15px] border-b-2 border-main">
           SẢN PHẨM MỚI
-        </h3>
+        </h3> 
         <div className="mt-4 mx-[-10px]">
           <CustomSlider products={newProducts} />
         </div>

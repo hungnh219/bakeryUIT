@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux"
 import clsx from "clsx"
 
 const tabs = [
-  { id: 1, name: "best sellers" },
-  { id: 2, name: "new arrivals" },
+  { id: 1, name: "bán chạy" },
+  { id: 2, name: "sản phẩm mới" },
 ]
 
 const BestSeller = () => {
@@ -35,7 +35,7 @@ const BestSeller = () => {
   }, [activedTab])
   return (
     <div className={clsx(isShowModal ? "hidden" : "")}>
-      <div className="flex text-[20px] ml-[-32px]">
+      <div className="flex text-[20px] ml-[-32px] ">
         {tabs.map((el) => (
           <span
             key={el.id}
@@ -48,10 +48,10 @@ const BestSeller = () => {
           </span>
         ))}
       </div>
-      <div className="">
+      <div className="border-t-2 border-main mt-2">
         <CustomSlider products={products} activedTab={activedTab} />
       </div>
-      <div className="w-full flex gap-4 mt-4">
+      {/* <div className="w-full flex gap-4 mt-4">
         <img
           src="https://cdn.shopify.com/s/files/1/1903/4853/files/banner2-home2_2000x_crop_center.png?v=1613166657"
           alt="banner"
@@ -62,7 +62,7 @@ const BestSeller = () => {
           alt="banner"
           className="flex-1 object-contain"
         />
-      </div>
+      </div> */}
     </div>
   )
 }
