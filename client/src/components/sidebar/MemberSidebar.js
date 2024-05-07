@@ -5,10 +5,10 @@ import { NavLink, Link } from "react-router-dom"
 import clsx from "clsx"
 import { AiOutlineCaretDown, AiOutlineCaretRight } from "react-icons/ai"
 import { useSelector } from "react-redux"
-import { TbArrowForwardUp } from "react-icons/tb"
+import { FaArrowLeft } from "react-icons/fa";
 
 const activedStyle =
-  "px-4 py-2 flex items-center gap-2  bg-blue-500 text-gray-100"
+  "px-4 py-2 flex items-center gap-2  bg-yellow-400 text-gray-100"
 const notActivedStyle = "px-4 py-2 flex items-center gap-2  hover:bg-blue-100"
 
 const MemberSidebar = () => {
@@ -21,12 +21,12 @@ const MemberSidebar = () => {
   }
 
   return (
-    <div className=" bg-white h-full py-4 w-[250px] flex-none">
+    <div className=" bg-main h-screen py-4 w-[20%] flex-none fixed z-10">
       <div className="w-full flex flex-col items-center justify-center py-4">
         <img
           src={current?.avatar || avatar}
           alt="logo"
-          className="w-16 h-16 object-cover"
+          className="w-16 h-16 object-cover rounded-full"
         />
         <small>{`${current?.lastname} ${current?.firstname}`}</small>
       </div>
@@ -84,9 +84,8 @@ const MemberSidebar = () => {
             )}
           </Fragment>
         ))}
-        <NavLink to={"/"} className={clsx(notActivedStyle)}>
-          <TbArrowForwardUp size={18} />
-          Go home
+        <NavLink to={"/"} className={clsx(`absolute top-4 left-2 opacity-70 hover:opacity-100 hover:-translate-y-1 hover:scale-105 duration-300`)}>
+          <FaArrowLeft size={24} />
         </NavLink>
       </div>
     </div>

@@ -6,6 +6,7 @@ import {
   DealDaily,
   FeatureProducts,
   CustomSlider,
+  About
 } from "../../components"
 import { useSelector } from "react-redux"
 import icons from "../../ultils/icons"
@@ -20,41 +21,44 @@ const Home = ({ navigate }) => {
 
   return (
     <div className="w-full ">
-      <div className="w-main m-auto flex mt-6">
-        <div className="flex flex-col gap-5 w-[25%] flex-auto">
+      <div className="w-main m-auto mt-6">
+        {/* <div className="flex flex-col gap-5 w-[25%] flex-auto">
           <Sidebar />
           <DealDaily />
-        </div>
-        <div className="flex flex-col gap-5 pl-5 w-[75%] flex-auto">
+        </div> */}
+        <div className="flex flex-col gap-5 w-full flex-auto">
           <Banner />
           <BestSeller />
         </div>
+      </div>
+      <div className="w-full flex justify-center">
+        <About />
       </div>
       <div className="my-8 w-main m-auto">
         <FeatureProducts />
       </div>
       <div className="my-8 w-main m-auto">
         <h3 className="text-[20px] font-semibold py-[15px] border-b-2 border-main">
-          NEW ARRIVALS
-        </h3>
+          SẢN PHẨM MỚI
+        </h3> 
         <div className="mt-4 mx-[-10px]">
           <CustomSlider products={newProducts} />
         </div>
       </div>
       <div className="my-8 w-main m-auto">
         <h3 className="text-[20px] font-semibold py-[15px] border-b-2 border-main">
-          HOT COLLECTIONS
+          BỘ SƯU TẬP
         </h3>
-        <div className="flex flex-wrap gap-4 mt-4">
+        <div className="flex flex-wrap justify-center gap-4 mt-4">
           {categories
             ?.filter((el) => el.brand.length > 0)
             ?.map((el) => (
-              <div key={el._id} className="w-[396px]">
-                <div className="border flex p-4 gap-4 min-h-[190px]">
+              <div key={el._id} className="w-[48%]">
+                <div className="border rounded shadow-lg flex p-4 gap-4 min-h-[190px]">
                   <img
                     src={el?.image}
                     alt=""
-                    className="w-[144px] flex-1 h-[129px] object-cover"
+                    className="w-[144px] flex-1 h-[129px] object-cover rounded border"
                   />
                   <div className="flex-1 text-gray-700">
                     <h4 className="font-semibold uppercase">{el.title}</h4>

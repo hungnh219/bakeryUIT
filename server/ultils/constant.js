@@ -6,12 +6,14 @@ exports.users = [
         lastname: 'Thanh',
         mobile: '01234567788',
         role: 1945,
+        address: "Thu Duc",
     },
     {
         email: 'user-01@gmail.com',
         password: 123456,
         firstname: 'Tony 1',
         lastname: 'Jimmy',
+        address: "Thu Duc",
         mobile: '01234567788'
     },
     {
@@ -19,6 +21,7 @@ exports.users = [
         password: 123456,
         firstname: 'Tony 2',
         lastname: 'Jimmy',
+        address: "Thu Duc",
         mobile: '01234567784'
     },
     {
@@ -26,6 +29,7 @@ exports.users = [
         password: 123456,
         firstname: 'Tony 3',
         lastname: 'Jimmy',
+        address: "Thu Duc",
         mobile: '01234567785'
     },
     {
@@ -33,6 +37,7 @@ exports.users = [
         password: 123456,
         firstname: 'Tony 4',
         lastname: 'Jimmy',
+        address: "Thu Duc",
         mobile: '01234567780'
     },
 ]

@@ -17,7 +17,7 @@ module.exports = {
     },
     extend: {
       width: {
-        main: '1220px'
+        main: '80%'
       },
       gridRow: {
         'span-7': 'span 7 / span 7',
@@ -30,11 +30,11 @@ module.exports = {
         'layout': '200px minmax(900px, 1fr) 100px',
       },
       backgroundColor: {
-        main: '#ee3131',
+        main: '#d9ae65',
         overlay: 'rgba(0,0,0,0.7)'
       },
       colors: {
-        main: '#ee3131'
+        main: '#d9ae65'
       },
       flex: {
         '2': '2 2 0%',

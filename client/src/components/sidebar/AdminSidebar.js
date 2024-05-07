@@ -1,5 +1,5 @@
 import React, { memo, Fragment, useState } from 'react'
-import logo from 'assets/logo.png'
+import logo from 'assets/logo-uit-cake.png'
 import { adminSidebar } from 'ultils/contants'
 import { NavLink, Link } from 'react-router-dom'
 import clsx from 'clsx'
@@ -19,7 +19,7 @@ const AdminSidebar = () => {
         <div className=' bg-white h-full py-4'>
             <Link to={'/'} className='flex flex-col justify-center items-center p-4 gap-2'>
                 <img src={logo} alt="logo" className='w-[200px] object-contain' />
-                <small>Admin Workspace</small>
+                <small>Trang quản trị</small>
             </Link>
             <div>
                 {adminSidebar.map(el => (

@@ -6,10 +6,10 @@ const Wishlist = () => {
   const { current } = useSelector((s) => s.user)
   return (
     <div className="w-full relative px-4">
-      <header className="text-3xl font-semibold py-4 border-b border-b-blue-200">
-        Wishlist
+      <header className="text-3xl text-center text-main font-semibold py-4 border-b-2 border-main uppercase">
+        Danh sách yêu thích
       </header>
-      <div className="p-4 w-full flex flex-wrap gap-4">
+      <div className="p-4 w-full grid grid-cols-3 gap-4">
         {current?.wishlist?.map((el) => (
           <div
             className="bg-white rounded-md w-[300px] drop-shadow flex flex-col py-3 gap-3"

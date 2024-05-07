@@ -1,24 +1,25 @@
-import React, { useState, memo } from "react"
-import { formatMoney } from "ultils/helpers"
-import label from "assets/new.png"
-import trending from "assets/trending.png"
-import { renderStarFromNumber } from "ultils/helpers"
-import { SelectOption } from "components"
-import icons from "ultils/icons"
-import withBaseComponent from "hocs/withBaseComponent"
-import { showModal } from "store/app/appSlice"
-import { DetailProduct } from "pages/public"
-import { apiUpdateCart, apiUpdateWishlist } from "apis"
-import { toast } from "react-toastify"
-import { getCurrent } from "store/user/asyncActions"
-import { useSelector } from "react-redux"
-import Swal from "sweetalert2"
-import path from "ultils/path"
-import { BsFillCartCheckFill, BsFillCartPlusFill } from "react-icons/bs"
-import { createSearchParams } from "react-router-dom"
-import clsx from "clsx"
+import React, { useState, memo } from "react";
+import { formatMoney } from "ultils/helpers";
+import labelRed from "assets/label.png";
+import trending from "assets/trending.png";
+import lableBlue from "assets/label-blue.png";
+import { renderStarFromNumber } from "ultils/helpers";
+import { SelectOption } from "components";
+import icons from "ultils/icons";
+import withBaseComponent from "hocs/withBaseComponent";
+import { showModal } from "store/app/appSlice";
+import { DetailProduct } from "pages/public";
+import { apiUpdateCart, apiUpdateWishlist } from "apis";
+import { toast } from "react-toastify";
+import { getCurrent } from "store/user/asyncActions";
+import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
+import path from "ultils/path";
+import { BsFillCartCheckFill, BsFillCartPlusFill } from "react-icons/bs";
+import { createSearchParams } from "react-router-dom";
+import clsx from "clsx";
 
-const { AiFillEye, BsFillSuitHeartFill } = icons
+const { AiFillEye, BsFillSuitHeartFill } = icons;
 
 const Product = ({
   productData,
@@ -30,10 +31,10 @@ const Product = ({
   pid,
   className,
 }) => {
-  const [isShowOption, setIsShowOption] = useState(false)
-  const { current } = useSelector((state) => state.user)
+  const [isShowOption, setIsShowOption] = useState(false);
+  const { current } = useSelector((state) => state.user);
   const handleClickOptions = async (e, flag) => {
-    e.stopPropagation()
+    e.stopPropagation();
     if (flag === "CART") {
       if (!current)
         return Swal.fire({
@@ -50,8 +51,8 @@ const Product = ({
               search: createSearchParams({
                 redirect: location.pathname,
               }).toString(),
-            })
-        })
+            });
+        });
       const response = await apiUpdateCart({
         pid: productData?._id,
         color: productData?.color,
@@ -59,18 +60,18 @@ const Product = ({
         price: productData?.price,
         thumbnail: productData?.thumb,
         title: productData?.title,
-      })
+      });
       if (response.success) {
-        toast.success(response.mes)
-        dispatch(getCurrent())
-      } else toast.error(response.mes)
+        toast.success(response.mes);
+        dispatch(getCurrent());
+      } else toast.error(response.mes);
     }
     if (flag === "WISHLIST") {
-      const response = await apiUpdateWishlist(pid)
+      const response = await apiUpdateWishlist(pid);
       if (response.success) {
-        dispatch(getCurrent())
-        toast.success(response.mes)
-      } else toast.error(response.mes)
+        dispatch(getCurrent());
+        toast.success(response.mes);
+      } else toast.error(response.mes);
     }
     if (flag === "QUICK_VIEW") {
       dispatch(
@@ -83,13 +84,13 @@ const Product = ({
             />
           ),
         })
-      )
+      );
     }
-  }
+  };
   return (
     <div className={clsx("w-full text-base px-[10px]", className)}>
       <div
-        className="w-full border p-[15px] flex flex-col items-center"
+        className="w-full border p-[15px] flex flex-col items-center rounded shadow-lg"
         onClick={(e) =>
           navigate(
             `/${productData?.category?.toLowerCase()}/${productData?._id}/${
@@ -98,12 +99,12 @@ const Product = ({
           )
         }
         onMouseEnter={(e) => {
-          e.stopPropagation()
-          setIsShowOption(true)
+          e.stopPropagation();
+          setIsShowOption(true);
         }}
         onMouseLeave={(e) => {
-          e.stopPropagation()
-          setIsShowOption(false)
+          e.stopPropagation();
+          setIsShowOption(false);
         }}
       >
         <div className="w-full relative">
@@ -153,17 +154,24 @@ const Product = ({
               "https://apollobattery.com.au/wp-content/uploads/2022/08/default-product-image.png"
             }
             alt=""
-            className="w-[274px] h-[274px]  object-cover"
+            className="w-full h-[274px] object-cover rounded border"
           />
           {!normal && (
-            <img
-              src={isNew ? label : trending}
-              alt=""
-              className={`absolute w-[100px] h-[35px] top-0 right-[0] object-cover`}
-            />
+            <>
+              <img
+                src={isNew ? labelRed : lableBlue}
+                alt=""
+                className={`absolute w-[150px] h-[60px] top-1 left-[-34px] object-cover`}
+              />
+              <span
+                className={`absolute top-[14px] left-[-34px] w-[150px] text-center text-white font-semibold ${isNew && 'uppercase'}`}
+              >
+                {isNew ? "Mới" : "Bán chạy"}
+              </span>
+            </>
           )}
         </div>
-        <div className="flex flex-col mt-[15px] items-start gap-1 w-full">
+        <div className="w-full">
           <span className="flex h-4">
             {renderStarFromNumber(productData?.totalRatings)?.map(
               (el, index) => (
@@ -171,12 +179,16 @@ const Product = ({
               )
             )}
           </span>
-          <span className="line-clamp-1">{productData?.title}</span>
-          <span>{`${formatMoney(productData?.price)} VNĐ`}</span>
+          <span className="line-clamp-1 text-lg text-center text-gray-600 font-semibold">
+            {productData?.title}
+          </span>
+          <span className="line-clamp-1 text-sm text-center text-gray-600 font-semibold">{`${formatMoney(
+            productData?.price
+          )} VNĐ`}</span>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default withBaseComponent(memo(Product))
+export default withBaseComponent(memo(Product));

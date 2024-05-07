@@ -4,28 +4,28 @@ import icons from "./icons"
 export const navigation = [
   {
     id: 1,
-    value: "HOME",
+    value: "Trang chủ",
     path: `/${path.HOME}`,
   },
   {
     id: 2,
-    value: "PRODUCTS",
+    value: "Menu",
     path: `/${path.PRODUCTS}`,
   },
   {
     id: 3,
-    value: "BLOGS",
+    value: "Bài viết",
     path: `/${path.BLOGS}`,
   },
   {
     id: 4,
-    value: "OUR SERVICES",
-    path: `/${path.OUR_SERVICES}`,
+    value: "Giới thiệu",
+    path: `/${path.INTRODUCE}`,
   },
   {
     id: 5,
-    value: "FAQs",
-    path: `/${path.FAQ}`,
+    value: "Liên hệ",
+    path: `/${path.CONTACT}`,
   },
 ]
 const { RiTruckFill, BsShieldShaded, BsReplyFill, FaTty, AiFillGift } = icons
@@ -227,28 +227,28 @@ export const memberSidebar = [
   {
     id: 1,
     type: "SINGLE",
-    text: "Personal",
+    text: "Thông tin cá nhân",
     path: `/${path.MEMBER}/${path.PERSONAL}`,
     icon: <AiOutlineDashboard size={20} />,
   },
   {
     id: 2,
     type: "SINGLE",
-    text: "My cart",
+    text: "Giỏ hàng",
     path: `/${path.MEMBER}/${path.MY_CART}`,
     icon: <MdGroups size={20} />,
   },
   {
     id: 4,
     type: "SINGLE",
-    text: "Buy histories",
+    text: "Lịch sử mua hàng",
     path: `/${path.MEMBER}/${path.HISTORY}`,
     icon: <RiBillLine size={20} />,
   },
   {
     id: 4,
     type: "SINGLE",
-    text: "Wishlist",
+    text: "Yêu thích",
     path: `/${path.MEMBER}/${path.WISHLIST}`,
     icon: <RiBillLine size={20} />,
   },
