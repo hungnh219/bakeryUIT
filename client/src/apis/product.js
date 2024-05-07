@@ -58,3 +58,9 @@ export const apiGetUserOrders = (params) =>
     method: "get",
     params,
   })
+export const apiGetAllUserOrders = (params) =>
+  axios({
+    url: "/order/getAllOrders",
+    method: "get",
+    params,
+  })
