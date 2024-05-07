@@ -40,13 +40,13 @@ const Personal = ({ navigate }) => {
         } else toast.error(response.mes)
     }
     return (
-        <div className='w-full relative px-4'>
-            <header className='text-3xl font-semibold py-4 border-b border-b-blue-200'>
-                Personal
+        <div className='w-full relative'>
+            <header className='text-3xl font-semibold mx-3 py-3 text-main text-center border-main w-full border-b-2 uppercase'>
+                Trang cá nhân
             </header>
             <form onSubmit={handleSubmit(handleUpdateInfor)} className='w-3/5 mx-auto py-8 flex flex-col gap-4'>
                 <InputForm
-                    label='Firstname'
+                    label='Tên'
                     register={register}
                     errors={errors}
                     id='firstname'
@@ -55,7 +55,7 @@ const Personal = ({ navigate }) => {
                     }}
                 />
                 <InputForm
-                    label='Lastname'
+                    label='Họ'
                     register={register}
                     errors={errors}
                     id='lastname'
@@ -64,7 +64,7 @@ const Personal = ({ navigate }) => {
                     }}
                 />
                 <InputForm
-                    label='Email address'
+                    label='Email'
                     register={register}
                     errors={errors}
                     id='email'
@@ -74,7 +74,7 @@ const Personal = ({ navigate }) => {
                     }}
                 />
                 <InputForm
-                    label='Phone'
+                    label='Điện thoại'
                     register={register}
                     errors={errors}
                     id='mobile'
@@ -88,7 +88,7 @@ const Personal = ({ navigate }) => {
                     }}
                 />
                 <InputForm
-                    label='Address'
+                    label='Địa chỉ'
                     register={register}
                     errors={errors}
                     id='address'
@@ -108,13 +108,13 @@ const Personal = ({ navigate }) => {
                     <span className='font-medium'>Created At:</span>
                     <span>{moment(current?.createdAt).fromNow()}</span>
                 </div>
-                <div className='flex flex-col gap-2'>
+                {/* <div className='flex flex-col gap-2'>
                     <span className='font-medium'>Profile image:</span>
                     <label htmlFor="file">
                         <img src={current?.avatar || avatar} alt="avatar" className='w-20 h-20 ml-8 object-cover rounded-full' />
                     </label>
                     <input type="file" id="file" {...register('avatar')} hidden />
-                </div>
+                </div> */}
                 {isDirty && <div className='w-full flex justify-end'><Button type='submit'>Update information</Button></div>}
             </form>
         </div>

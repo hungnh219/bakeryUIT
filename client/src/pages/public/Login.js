@@ -81,7 +81,7 @@ const Login = () => {
     }
 
     return (
-        <div className='w-screen h-screen relative'>
+        <div className='w-screen h-screen flex justify-center'>
             {isVerifiedEmail && <div className='absolute top-0 left-0 right-0 bottom-0 bg-overlay z-50 flex flex-col justify-center items-center'>
                 <div className='bg-white w-[500px] rounded-md p-8'>
                     <h4 className=''>We sent a code to your mail. Please check your mail and enter your code:</h4>
@@ -114,21 +114,25 @@ const Login = () => {
                         <Button
                             name='Submit'
                             handleOnClick={handleForgotPassword}
-                            style='px-4 py-2 rounded-md text-white bg-blue-500 text-semibold my-2'
-                        />
+                            style='px-4 py-2 rounded-md text-white bg-blue-500 text-semibold my-2 hover:bg-blue-700 hover:-translate-y-1 hover:scale-103 duration-300'
+                        >
+                            Submit
+                        </Button>
                         <Button
                             name='Back'
                             handleOnClick={() => setIsForgotPassword(false)}
-                        />
+                        >
+                            Back
+                        </Button>
                     </div>
                 </div>
             </div>}
             <img
-                src="https://img.freepik.com/premium-photo/shopping-cart-card-icon-discounts_116441-26066.jpg"
+                src="https://png.pngtree.com/thumb_back/fh260/background/20240106/pngtree-deliciously-textured-bakery-shop-instagram-posts-image_13928076.png"
                 alt=""
                 className='w-full h-full object-cover'
             />
-            <div className='absolute top-0 bottom-0 left-0 right-1/2 items-center justify-center flex'>
+            <div className='absolute top-0 bottom-0 left-1/2 right-1/2 items-center justify-center flex'>
                 <div className='p-8 bg-white flex flex-col items-center rounded-md min-w-[500px]'>
                     <h1 className='text-[28px] font-semibold text-main mb-8'>{isRegister ? 'Register' : 'Login'}</h1>
                     {isRegister && <div className='flex items-center gap-2'>

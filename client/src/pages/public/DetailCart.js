@@ -27,18 +27,18 @@ const DetailCart = ({ location, navigate }) => {
         else window.open(`/${path.CHECKOUT}`, '_blank')
     }
     return (
-        <div className='w-full'>
-            <div className='h-[81px] flex justify-center items-center bg-gray-100'>
+        <div className='w-full px-3 flex flex-col items-center'>
+            <div className='h-[81px] w-full flex justify-center items-center border-b-2 border-main'>
                 <div className='w-main'>
-                    <h3 className='font-semibold text-2xl uppercase'>My Cart</h3>
+                    <h3 className='font-semibold text-3xl uppercase text-center text-main'>Giỏ hàng</h3>
                     {/* <Breadcrumb category={location?.pathname?.replace('/', '')?.split('-')?.join(' ')} /> */}
                 </div>
             </div>
-            <div className='flex flex-col border w-main mx-auto my-8'>
-                <div className='w-main mx-auto bg-gray-200  font-bold py-3 grid grid-cols-10'>
-                    <span className='col-span-6 w-full text-center'>Products</span>
-                    <span className='col-span-1 w-full text-center'>Quantity</span>
-                    <span className='col-span-3 w-full text-center'>Price</span>
+            <div className='flex flex-col w-main mx-auto my-8 border-x-2 border-main'>
+                <div className='w-full text-white mx-auto bg-main text-lg font-semibold py-3 grid grid-cols-10'>
+                    <span className='col-span-5 w-full text-center px-4 border-r-2'>Sản phẩm</span>
+                    <span className='col-span-2 w-full text-center px-4 border-r-2'>Số lượng</span>
+                    <span className='col-span-3 w-full text-center px-4'>Giá</span>
                 </div>
                 {currentCart?.map(el => (
                     <OrderItem

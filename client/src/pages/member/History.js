@@ -45,8 +45,8 @@ const History = ({ navigate, location }) => {
 
   return (
     <div className="w-full relative px-4">
-      <header className="text-3xl font-semibold py-4 border-b border-b-blue-200">
-        History
+      <header className="text-3xl text-main text-center font-semibold py-4 border-b-2 border-main uppercase">
+        lịch sử mua hàng
       </header>
       <div className="flex justify-end items-center px-4">
         <form className="w-[45%] grid grid-cols-2 gap-4">
@@ -56,7 +56,7 @@ const History = ({ navigate, location }) => {
               register={register}
               errors={errors}
               fullWidth
-              placeholder="Search orders by status,..."
+              placeholder="Nhập nội dung cần tìm"
             />
           </div>
           <div className="col-span-1 flex items-center">
@@ -71,12 +71,12 @@ const History = ({ navigate, location }) => {
       </div>
       <table className="table-auto w-full">
         <thead>
-          <tr className="border bg-sky-900 text-white border-white">
-            <th className="text-center py-2">#</th>
-            <th className="text-center py-2">Products</th>
-            <th className="text-center py-2">Total</th>
-            <th className="text-center py-2">Status</th>
-            <th className="text-center py-2">Created At</th>
+          <tr className="border bg-main text-white border-white">
+            <th className="text-center p-2">#</th>
+            <th className="text-center py-2">Sản phẩm</th>
+            <th className="text-center py-2">Tổng tiền</th>
+            <th className="text-center py-2">Trạng thái</th>
+            <th className="text-center py-2">Ngày mua</th>
           </tr>
         </thead>
         <tbody>
@@ -89,22 +89,22 @@ const History = ({ navigate, location }) => {
                   1}
               </td>
               <td className="text-center max-w-[500px] py-2">
-                <span className="grid grid-cols-4 gap-4">
+                <span className="">
                   {el.products?.map((item) => (
                     <span
-                      className="flex col-span-1 items-center gap-2"
+                      className="flex justify-center items-center gap-x-4"
                       key={item._id}
                     >
                       <img
                         src={item.thumbnail}
                         alt="thumb"
-                        className="w-8 h-8 rounded-md object-cover"
+                        className="h-10 rounded-md object-cover"
                       />
                       <span className="flex flex-col">
-                        <span className="text-main text-sm">{item.title}</span>
+                        <span className="text-main font-semibold text-base">{item.title}</span>
                         <span className="flex items-center text-xs gap-2">
-                          <span>Quantity:</span>
-                          <span className="text-main">{item.quantity}</span>
+                          <span className="font-semibold">Số lượng:</span>
+                          <span>{item.quantity}</span>
                         </span>
                       </span>
                     </span>

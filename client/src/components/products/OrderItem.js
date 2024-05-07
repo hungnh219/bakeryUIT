@@ -19,18 +19,18 @@ const OrderItem = ({ dispatch, color, dfQuantity = 1, price, title, thumbnail, p
     // Set quantity
 
     return (
-        <div className='w-main mx-auto border-b font-bold py-3 grid grid-cols-10'>
-            <span className='col-span-6 w-full text-center'>
+        <div className='w-full mx-auto border-b-2 border-main font-bold py-3 grid grid-cols-10'>
+            <span className='col-span-5 w-full text-center'>
                 <div className='flex gap-2 px-4 py-3'>
-                    <img src={thumbnail} alt="thumb" className='w-28 h-28 object-cover' />
+                    <img src={thumbnail} alt="thumb" className='w-28 h-28 object-cover rounded' />
                     <div className='flex flex-col items-start gap-1'>
                         <span className='text-sm text-main'>{title}</span>
                         <span className='text-[10px] font-main'>{color}</span>
                     </div>
                 </div>
             </span>
-            <span className='col-span-1 w-full text-center'>
-                <div className='flex items-center h-full'>
+            <span className='col-span-2 w-full'>
+                <div className='flex items-center justify-center h-full'>
                     <SelectQuantity
                         quantity={quantity}
                         handleQuantity={handleQuantity}
