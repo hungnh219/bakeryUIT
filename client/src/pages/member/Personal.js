@@ -97,15 +97,15 @@ const Personal = ({ navigate }) => {
                     }}
                 />
                 <div className='flex items-center gap-2'>
-                    <span className='font-medium'>Account status:</span>
+                    <span className='font-medium'>Trạng thái tài khoản:</span>
                     <span>{current?.isBlocked ? 'Blocked' : 'Actived'}</span>
                 </div>
                 <div className='flex items-center gap-2'>
-                    <span className='font-medium'>Role:</span>
+                    <span className='font-medium'>Vai trò:</span>
                     <span>{+current?.role === 1945 ? 'Admin' : 'User'}</span>
                 </div>
                 <div className='flex items-center gap-2'>
-                    <span className='font-medium'>Created At:</span>
+                    <span className='font-medium'>Ngày hoạt động:</span>
                     <span>{moment(current?.createdAt).fromNow()}</span>
                 </div>
                 {/* <div className='flex flex-col gap-2'>
@@ -115,7 +115,7 @@ const Personal = ({ navigate }) => {
                     </label>
                     <input type="file" id="file" {...register('avatar')} hidden />
                 </div> */}
-                {isDirty && <div className='w-full flex justify-end'><Button type='submit'>Update information</Button></div>}
+                {isDirty && <div className='w-full flex justify-end'><Button type='submit'>Cập nhật thông tin</Button></div>}
             </form>
         </div>
     )

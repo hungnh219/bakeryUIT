@@ -16,7 +16,7 @@ const AdminLayout = () => {
     return <Navigate to={`/${path.LOGIN}`} replace={true} />;
   return (
     <div className="flex w-full bg-gray-100 min-h-screen relative text-gray-900 ">
-      <Link to={`/${path.HOME}`} className="cursor-pointer absolute top-4 right-3 flex items-center gap-2 px-2 py-1 bg-yellow-600 rounded text-white hover:bg-yellow-500 hover:-translate-y-1 hover:scale-105 duration-300">
+      <Link to={`/${path.HOME}`} className="cursor-pointer z-10 absolute top-4 right-3 flex items-center gap-2 px-2 py-1 bg-yellow-600 rounded text-white hover:bg-yellow-500 hover:-translate-y-1 hover:scale-105 duration-300">
         <FaArrowLeft />
         Về trang chủ
       </Link>
@@ -28,7 +28,7 @@ const AdminLayout = () => {
             onClick={() => {
               setIsShow(true);
             }}
-            className="cursor-pointer absolute top-4 left-4 opacity-75 hover:-translate-y-1 hover:scale-110 hover:opacity-100 duration-300 "
+            className="cursor-pointer z-10 absolute top-4 left-4 opacity-75 hover:-translate-y-1 hover:scale-110 hover:opacity-100 duration-300 "
           >
             <FaBars size={24} />
           </div>

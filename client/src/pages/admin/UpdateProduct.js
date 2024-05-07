@@ -201,7 +201,7 @@ const UpdateProduct = ({ editProduct, render, setEditProduct }) => {
                             </div>
                         ))}
                     </div>}
-                    <div className='my-6'><Button type='submit'>Update new product</Button></div>
+                    <div className='my-6 font-semibold'><Button type='submit'>Cập nhật sản phẩm</Button></div>
                 </form>
             </div>
         </div>

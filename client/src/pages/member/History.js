@@ -98,7 +98,7 @@ const History = ({ navigate, location }) => {
                       <img
                         src={item.thumbnail}
                         alt="thumb"
-                        className="h-10 rounded-md object-cover"
+                        className="w-10 h-10 rounded-md object-cover"
                       />
                       <span className="flex flex-col">
                         <span className="text-main font-semibold text-base">{item.title}</span>

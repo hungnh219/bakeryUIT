@@ -188,7 +188,7 @@ const CreateProducts = () => {
                             </div>
                         ))}
                     </div>}
-                    <div className='my-6'><Button type='submit'>Create new product</Button></div>
+                    <div className='my-6 font-semibold'><Button type='submit'>Tạo mới</Button></div>
                 </form>
             </div>
         </div>
