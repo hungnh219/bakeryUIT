@@ -27,7 +27,7 @@ const Header = ({ dispatch }) => {
   }, []);
 
   return (
-    <div className="w-main flex items-center justify-around h-[110px] py-[35px]">
+    <div className="w-main  flex items-center justify-around h-[110px] py-[35px]">
       <Link to={`/${path.HOME}`}>
         <img src={logo} alt="logo" className="w-[234px] object-contain" />
       </Link>

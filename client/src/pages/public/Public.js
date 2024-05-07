@@ -7,7 +7,7 @@ const Public = () => {
     return (
         <div className='max-h-screen overflow-y-auto flex flex-col items-center'>
             <TopHeaders />
-            <Header />
+            <div className='w-full shadow-lg flex justify-center'><Header /></div>
             <div className='w-full flex items-center flex-col'>
                 <Outlet />
             </div>
