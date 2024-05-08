@@ -73,17 +73,17 @@ const Footer = () => {
             <div className="flex flex-col gap-y-2 text-base mt-2">
               <div className="flex items-center gap-x-2">
                 <MdLocationOn size={24} />
-                <span className="">
+                <span>
                   QL1A/1B 20, Khu Phố 6, Thủ Đức, Thành phố Hồ Chí Minh
                 </span>
               </div>
               <div className="flex items-center gap-x-2">
                 <RiPhoneFill size={24} />
-                <span className="opacity-10">0706770436</span>
+                <span>0706770436</span>
               </div>
               <div className="flex items-center gap-x-2">
                 <MdEmail size={24} />
-                <span className="">uitcake@gmail.com</span>
+                <span>uitcake@gmail.com</span>
               </div>
             </div>
           </div>
