@@ -47,8 +47,8 @@ const ManageOrder = ({ navigate, location }) => {
 
   return (
     <div className="w-full relative px-4">
-      <header className="text-3xl font-semibold py-4 border-b border-b-blue-200">
-        History
+      <header className="text-3xl text-center uppercase text-main font-semibold py-4 border-b-2 border-main">
+        Quản lí đơn hàng
       </header>
       <div className="flex justify-end items-center px-4">
         <form className="w-[45%] grid grid-cols-2 gap-4">
@@ -58,7 +58,7 @@ const ManageOrder = ({ navigate, location }) => {
               register={register}
               errors={errors}
               fullWidth
-              placeholder="Search orders by status,..."
+              placeholder="Nhập đơn hàng cần tìm..."
             />
           </div>
           <div className="col-span-1 flex items-center">
@@ -73,17 +73,17 @@ const ManageOrder = ({ navigate, location }) => {
       </div>
       <table className="table-auto w-full">
         <thead>
-          <tr className="border bg-sky-900 text-white border-white">
-            <th className="text-center py-2">#</th>
-            <th className="text-center py-2">Products</th>
-            <th className="text-center py-2">Total</th>
-            <th className="text-center py-2">Status</th>
-            <th className="text-center py-2">Created At</th>
+          <tr className="bg-main text-white border-gray-500 border">
+            <th className="text-center p-2">#</th>
+            <th className="text-center p-2">Mặt hàng</th>
+            <th className="text-center p-2">Giá trị</th>
+            <th className="text-center p-2">Trạng thái</th>
+            <th className="text-center p-2">Ngày thanh toán</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-sm ">
           {orders?.map((el, idx) => (
-            <tr className="border-b" key={el._id}>
+            <tr className="border-gray-500 border" key={el._id}>
               <td className="text-center py-2">
                 {(+params.get("page") > 1 ? +params.get("page") - 1 : 0) *
                   process.env.REACT_APP_LIMIT +
@@ -91,10 +91,10 @@ const ManageOrder = ({ navigate, location }) => {
                   1}
               </td>
               <td className="text-center max-w-[500px] py-2">
-                <span className="grid grid-cols-4 gap-4">
+                <span>
                   {el.products?.map((item) => (
                     <span
-                      className="flex col-span-1 items-center gap-2"
+                      className="flex col-span-1 justify-center items-center gap-2"
                       key={item._id}
                     >
                       <img
@@ -103,10 +103,10 @@ const ManageOrder = ({ navigate, location }) => {
                         className="w-8 h-8 rounded-md object-cover"
                       />
                       <span className="flex flex-col">
-                        <span className="text-main text-sm">{item.title}</span>
+                        <span className="text-main font-semibold text-sm">{item.title}</span>
                         <span className="flex items-center text-xs gap-2">
-                          <span>Quantity:</span>
-                          <span className="text-main">{item.quantity}</span>
+                          <span className="font-semibold">Số lượng:</span>
+                          <span>{item.quantity}</span>
                         </span>
                       </span>
                     </span>

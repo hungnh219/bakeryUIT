@@ -14,7 +14,8 @@ import {
   FaFacebookSquare,
   FaInstagram,
   FaCircle,
-  FaArrowLeft
+  FaArrowLeft,
+  FaClock 
 } from "react-icons/fa";
 import {
   AiFillHome,
@@ -64,7 +65,8 @@ const icons = {
   TbBrandShopee,
   SiGrab,
   FaCircle,
-  FaArrowLeft
+  FaArrowLeft,
+  FaClock 
 };
 
 export default icons;

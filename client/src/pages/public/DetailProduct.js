@@ -126,6 +126,10 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
     e.stopPropagation();
     setCurrentImage(el);
   };
+  //   e.stopPropagation()
+  //   setCurrentImage(el)
+  //   console.log(currentImage);
+  // }
   const handleAddToCart = async () => {
     if (!current)
       return Swal.fire({
@@ -197,7 +201,7 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
   return (
     <div className={clsx("w-full")}>
       {!isQuickView && (
-        <div className="h-[81px] flex justify-center items-center bg-gray-100">
+        <div className="py-4 flex justify-center items-center bg-gray-100">
           <div ref={titleRef} className="w-main">
             <h3 className="font-semibold">
               {currentProduct.title || product?.title}
@@ -219,11 +223,14 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
         )}
       >
         <div
-          className={clsx("flex flex-col gap-4 w-2/5", isQuickView && "w-1/2")}
+          className={clsx(
+            "flex flex-col gap-4 w-1/2 mr-4",
+            isQuickView && "w-1/2"
+          )}
         >
           {/* <div className="w-[458px] h-[458px] border flex items-center overflow-hidden"> */}
-          <div className="w-[458px] h-[458px] border flex items-center">
-            <ReactImageMagnify
+          <div className="w-full rounded flex items-center ">
+            {/* <ReactImageMagnify
               {...{
                 smallImage: {
                   alt: "",
@@ -236,32 +243,34 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
                   height: 1500,
                 },
               }}
+            /> */}
+            <img
+              src={currentImage}
+              alt="thumbnail"
+              className="w-full rounded shadow-lg h-[400px] object-cover"
             />
           </div>
-          <div className="w-[458px]">
-            <Slider
-              className="image-slider flex gap-2 justify-between"
-              {...settings}
-            >
+          <div className="w-full">
+            <Slider className="image-slider" {...settings}>
               {currentProduct.images?.length === 0 &&
                 product?.images?.map((el) => (
-                  <div className="flex-1" key={el}>
+                  <div className="mx-auto" key={el}>
                     <img
                       onClick={(e) => handleClickImage(e, el)}
                       src={el}
                       alt="sub-product"
-                      className="w-[143px] cursor-pointer h-[143px] border object-cover"
+                      className="w-[98%] cursor-pointer h-[145px] border rounded object-cover"
                     />
                   </div>
                 ))}
               {currentProduct.images?.length > 0 &&
                 currentProduct.images?.map((el) => (
-                  <div className="flex-1" key={el}>
+                  <div className="mx-auto" key={el}>
                     <img
                       onClick={(e) => handleClickImage(e, el)}
                       src={el}
                       alt="sub-product"
-                      className="w-[143px] cursor-pointer h-[143px] border object-cover"
+                      className="w-[98%] cursor-pointer h-[145px] border rounded object-cover"
                     />
                   </div>
                 ))}
@@ -270,24 +279,27 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
         </div>
         <div
           className={clsx(
-            "w-2/5 pr-[24px] flex flex-col gap-4",
+            "w-1/2 px-6 flex flex-col gap-4",
             isQuickView && "w-1/2"
           )}
         >
           <h2 className="text-[30px] font-semibold">
             {currentProduct.title || product?.title}
           </h2>
+          <h2 className="text-4xl font-semibold">
+            {currentProduct.title || product?.title}
+          </h2>
           <div className="flex items-center justify-between">
-            <h2 className="text-[30px] font-semibold">{`${formatMoney(
+            <h2 className="text-xl font-semibold">{`${formatMoney(
               fotmatPrice(currentProduct.price || product?.price)
             )} VNĐ`}</h2>
-            <span className="text-sm text-main">{`In stock: ${product?.quantity}`}</span>
+            <span className="text-sm text-main">{`(Còn hàng: ${product?.quantity})`}</span>
           </div>
           <div className="flex items-center gap-1">
             {renderStarFromNumber(product?.totalRatings)?.map((el, index) => (
               <span key={index}>{el}</span>
             ))}
-            <span className="text-sm text-main italic">{`(Sold: ${product?.sold} pieces)`}</span>
+            <span className="text-sm text-main italic">{`Đã bán ${product?.sold} sản phẩm`}</span>
           </div>
           <ul className="list-square text-sm text-gray-500 pl-4">
             {product?.description?.length > 1 &&
@@ -349,13 +361,18 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
           </div> */}
           <div className="flex flex-col gap-8">
             <div className="flex items-center gap-4">
-              <span className="font-semibold">Quantity</span>
+              <span className="font-semibold">Số lượng</span>
               <SelectQuantity
                 quantity={quantity}
                 handleQuantity={handleQuantity}
                 handleChangeQuantity={handleChangeQuantity}
               />
             </div>
+            {/* <div className="">
+              <Button handleOnClick={handleAddToCart} fw>
+                Thêm vào giỏ hàng
+              </Button>
+            </div> */}
             <div>
               <Button handleOnClick={handleAddToCart} fw>
                 Thêm vào giỏ hàng
@@ -373,7 +390,7 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
             </div>
           </div>
         </div>
-        {!isQuickView && (
+        {/* {!isQuickView && (
           <div className="w-1/5">
             {productExtraInfomation.map((el) => (
               <ProductExtraInfoItem
@@ -384,10 +401,13 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
               />
             ))}
           </div>
-        )}
+        )} */}
       </div>
       {!isQuickView && (
-        <div className="w-main m-auto mt-8">
+        <div className="w-main m-auto mt-20">
+          <h3 className="uppercase border-b-2 border-main text-xl font-semibold py-2">
+            Lượt đánh giá
+          </h3>
           <ProductInfomation
             totalRatings={product?.totalRatings}
             ratings={product?.ratings}
@@ -400,8 +420,8 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
       {!isQuickView && (
         <>
           <div className="w-main m-auto mt-8">
-            <h3 className="text-[20px] font-semibold py-[15px] border-b-2 border-main">
-              OTHER CUSTOMER ALSO LIKED
+            <h3 className="text-[20px] font-semibold py-[15px] border-b-2 border-main uppercase">
+              Sản phẩm khác
             </h3>
             <CustomSlider normal={true} products={relatedProducts} />
           </div>

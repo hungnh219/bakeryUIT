@@ -49,7 +49,7 @@ const Cart = ({ dispatch, navigate, location }) => {
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="w-[400px] h-screen bg-black grid grid-rows-10 text-white p-6"
+      className="fixed w-[400px] h-screen bg-black grid grid-rows-10 text-white p-6"
     >
       <header className="border-b border-gray-500 flex justify-between items-center row-span-1 h-full font-bold text-2xl">
         <span>Your Cart</span>
@@ -111,15 +111,15 @@ const Cart = ({ dispatch, navigate, location }) => {
             dispatch(showCart());
             navigate(`/${path.MEMBER}/${path.DETAIL_CART}`);
           }}
-          style="rounded-none w-full bg-main py-3"
+          style="rounded-none w-full bg-main py-3 mb-2"
         >
-          Shopping Cart
+          Giỏ hàng
         </Button>
         <Button
-          style="rounded-none w-full bg-main py-3 mt-2"
+          style="rounded-none w-full bg-main py-3"
           handleOnClick={handleSubmit}
         >
-          Checkout
+          Thanh toán
         </Button>
       </div>
     </div>

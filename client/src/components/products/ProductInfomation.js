@@ -47,7 +47,7 @@ const ProductInfomation = ({ totalRatings, ratings, nameProduct, pid, rerender }
     }
     return (
         <div>
-            <div className='flex items-center gap-2 relative bottom-[-1px]'>
+            {/* <div className='flex items-center gap-2 relative bottom-[-1px]'>
                 {productInfoTabs.map(el => (
                     <span
                         className={`py-2 px-4 cursor-pointer ${activedTab === +el.id ? 'bg-white border border-b-0' : 'bg-gray-200'}`}
@@ -60,16 +60,16 @@ const ProductInfomation = ({ totalRatings, ratings, nameProduct, pid, rerender }
             </div>
             <div className='w-full border p-4'>
                 {productInfoTabs.some(el => el.id === activedTab) && productInfoTabs.find(el => el.id === activedTab)?.content}
-            </div>
+            </div> */}
 
-            <div className='flex flex-col py-8 w-main'>
+            <div className='flex flex-col py-4 w-full'>
                 <div className='flex border'>
                     <div className='flex-4 flex-col flex items-center justify-center '>
-                        <span className='font-semibold text-3xl'>{`${totalRatings}/5`}</span>
+                        <span className='font-semibold text-4xl'>{`${totalRatings}/5`}</span>
                         <span className='flex items-center gap-1'>{renderStarFromNumber(totalRatings)?.map((el, index) => (
                             <span key={index}>{el}</span>
                         ))}</span>
-                        <span className='text-sm'>{`${ratings?.length} reviewers and commentors`}</span>
+                        <span className='text-base'>{`${ratings?.length} người đánh giá và bình luận`}</span>
                     </div>
                     <div className='flex-6 flex gap-2 flex-col p-4'>
                         {Array.from(Array(5).keys()).reverse().map(el => (
@@ -83,10 +83,10 @@ const ProductInfomation = ({ totalRatings, ratings, nameProduct, pid, rerender }
                     </div>
                 </div>
                 <div className='p-4 flex items-center justify-center text-sm flex-col gap-2'>
-                    <span>Do you review this product?</span>
+                    <span>Bạn muốn đánh giá sản phẩm này?</span>
                     <Button handleOnClick={handleVoteNow}
                     >
-                        Vote now!
+                        Đánh giá ngay!
                     </Button>
                 </div>
                 <div className='flex flex-col gap-4'>

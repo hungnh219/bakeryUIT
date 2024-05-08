@@ -80,7 +80,7 @@ const ManageProducts = () => {
   }
 
   return (
-    <div className="w-full flex flex-col gap-4 relative">
+    <div className="w-[98%] mx-4">
       {editProduct && (
         <div className="absolute inset-0 min-h-screen bg-gray-100 z-50">
           <UpdateProduct
@@ -99,9 +99,8 @@ const ManageProducts = () => {
           />
         </div>
       )}
-      <div className="h-[69px] w-full"></div>
-      <div className="p-4 border-b w-full bg-gray-100 flex justify-between items-center fixed top-0">
-        <h1 className="text-3xl font-bold tracking-tight">Manage products</h1>
+      <div className="py-4 border-b-2 border-main w-full bg-gray-100">
+        <h1 className="text-3xl text-center text-main font-semibold tracking-tight uppercase">Quản lí sản phẩm</h1>
       </div>
       <div className="flex justify-end items-center px-4">
         <form className="w-[45%]">
@@ -110,42 +109,42 @@ const ManageProducts = () => {
             register={register}
             errors={errors}
             fullWidth
-            placeholder="Search products by title, description,..."
+            placeholder="Nhập sản phẩm cần tìm..."
           />
         </form>
       </div>
-      <table className="table-auto">
+      <table className="table-auto w-full">
         <thead>
-          <tr className="border bg-sky-900 text-white border-white">
-            <th className="text-center py-2">Order</th>
-            <th className="text-center py-2">Thumb</th>
-            <th className="text-center py-2">Title</th>
-            <th className="text-center py-2">Brand</th>
-            <th className="text-center py-2">Category</th>
-            <th className="text-center py-2">Price</th>
-            <th className="text-center py-2">Quantity</th>
-            <th className="text-center py-2">Sold</th>
-            <th className="text-center py-2">Color</th>
-            <th className="text-center py-2">Ratings</th>
-            <th className="text-center py-2">Varriants</th>
-            <th className="text-center py-2">UpdatedAt</th>
-            <th className="text-center py-2">Actions</th>
+          <tr className="border bg-main text-sm text-white border-gray-700">
+            <th className="text-center p-2">#</th>
+            <th className="text-center p-2">Ảnh</th>
+            <th className="text-center p-2">Tên SP</th>
+            <th className="text-center p-2">Thương hiệu</th>
+            <th className="text-center p-2">Loại SP</th>
+            <th className="text-center p-2">Giá</th>
+            <th className="text-center p-2">SL</th>
+            <th className="text-center p-2">Đã bán</th>
+            <th className="text-center p-2">Màu sắc</th>
+            {/* <th className="text-center p-2">Lượt đánh giá</th> */}
+            {/* <th className="text-center p-2">Biến thể</th> */}
+            <th className="text-center p-2">Ngày cập nhật</th>
+            <th className="text-center p-2">Hành động</th>
           </tr>
         </thead>
         <tbody>
           {products?.map((el, idx) => (
-            <tr className="border-b" key={el._id}>
+            <tr className="border border-gray-700 text-sm" key={el._id}>
               <td className="text-center py-2">
                 {(+params.get("page") > 1 ? +params.get("page") - 1 : 0) *
                   process.env.REACT_APP_LIMIT +
                   idx +
                   1}
               </td>
-              <td className="text-center py-2">
+              <td className="text-center p-2 flex justify-center items-center">
                 <img
                   src={el.thumb}
                   alt="thumb"
-                  className="w-12 h-12 object-cover"
+                  className="w-12 h-10 object-cover"
                 />
               </td>
               <td className="text-center py-2">{el.title}</td>
@@ -155,8 +154,8 @@ const ManageProducts = () => {
               <td className="text-center py-2">{el.quantity}</td>
               <td className="text-center py-2">{el.sold}</td>
               <td className="text-center py-2">{el.color}</td>
-              <td className="text-center py-2">{el.totalRatings}</td>
-              <td className="text-center py-2">{el?.varriants?.length || 0}</td>
+              {/* <td className="text-center py-2">{el.totalRatings}</td>
+              <td className="text-center py-2">{el?.varriants?.length || 0}</td> */}
               <td className="text-center py-2">
                 {moment(el.createdAt).format("DD/MM/YYYY")}
               </td>

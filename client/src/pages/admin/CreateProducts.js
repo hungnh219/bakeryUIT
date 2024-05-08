@@ -74,14 +74,14 @@ const CreateProducts = () => {
         }
     }
     return (
-        <div className='w-full'>
-            <h1 className='h-[75px] flex justify-between items-center text-3xl font-bold px-4 border-b'>
-                <span>Create New Product</span>
+        <div className='w-[98%] mx-2'>
+            <h1 className='py-4 text-center text-main text-3xl font-semibold px-4 border-b-2 border-main uppercase'>
+                <span>tạo sản phẩm</span>
             </h1>
             <div className='p-4'>
                 <form onSubmit={handleSubmit(handleCreateProduct)}>
                     <InputForm
-                        label='Name product'
+                        label='Tên sản phẩm'
                         register={register}
                         errors={errors}
                         id='title'
@@ -89,11 +89,11 @@ const CreateProducts = () => {
                             required: 'Need fill this field'
                         }}
                         fullWidth
-                        placeholder='Name of new product'
+                        placeholder='Nhập tên sản phẩm cần tạo'
                     />
                     <div className='w-full my-6 flex gap-4'>
                         <InputForm
-                            label='Price'
+                            label='Giá'
                             register={register}
                             errors={errors}
                             id='price'
@@ -101,11 +101,11 @@ const CreateProducts = () => {
                                 required: 'Need fill this field'
                             }}
                             style='flex-auto'
-                            placeholder='Price of new product'
+                            placeholder='Nhập giá sản phẩm cần tạo'
                             type='number'
                         />
                         <InputForm
-                            label='Quantity'
+                            label='Số lượng'
                             register={register}
                             errors={errors}
                             id='quantity'
@@ -113,11 +113,11 @@ const CreateProducts = () => {
                                 required: 'Need fill this field'
                             }}
                             style='flex-auto'
-                            placeholder='Quantity of new product'
+                            placeholder='Nhập số lượng của sản phẩm'
                             type='number'
                         />
                         <InputForm
-                            label='Color'
+                            label='Màu sắc'
                             register={register}
                             errors={errors}
                             id='color'
@@ -125,12 +125,12 @@ const CreateProducts = () => {
                                 required: 'Need fill this field'
                             }}
                             style='flex-auto'
-                            placeholder='color of new product'
+                            placeholder='Nhập màu của sản phẩm'
                         />
                     </div>
                     <div className='w-full my-6 flex gap-4'>
                         <Select
-                            label='Category'
+                            label='Loại sản phẩm'
                             options={categories?.map(el => ({ code: el._id, value: el.title }))}
                             register={register}
                             id='category'
@@ -140,7 +140,7 @@ const CreateProducts = () => {
                             fullWidth
                         />
                         <Select
-                            label='Brand (Optional)'
+                            label='Thương hiệu (không bắt buộc)'
                             options={categories?.find(el => el._id === watch('category'))?.brand?.map(el => ({ code: el, value: el }))}
                             register={register}
                             id='brand'
@@ -152,12 +152,12 @@ const CreateProducts = () => {
                     <MarkdownEditor
                         name='description'
                         changeValue={changeValue}
-                        label='Description'
+                        label='Mô tả sản phẩm'
                         invalidFields={invalidFields}
                         setInvalidFields={setInvalidFields}
                     />
                     <div className='flex flex-col gap-2 mt-8'>
-                        <label className='font-semibold' htmlFor="thumb">Upload thumb</label>
+                        <label className='font-semibold' htmlFor="thumb">Tải ảnh đại diện</label>
                         <input
                             type="file"
                             id="thumb"
@@ -169,7 +169,7 @@ const CreateProducts = () => {
                         <img src={preview.thumb} alt="thumbnail" className='w-[200px] object-contain' />
                     </div>}
                     <div className='flex flex-col gap-2 mt-8'>
-                        <label className='font-semibold' htmlFor="products">Upload images of product</label>
+                        <label className='font-semibold' htmlFor="products">Tải lên danh sách ảnh của sản phẩm</label>
                         <input
                             type="file"
                             id="products"
@@ -188,7 +188,7 @@ const CreateProducts = () => {
                             </div>
                         ))}
                     </div>}
-                    <div className='my-6'><Button type='submit'>Create new product</Button></div>
+                    <div className='my-6 font-semibold'><Button type='submit'>Tạo mới</Button></div>
                 </form>
             </div>
         </div>

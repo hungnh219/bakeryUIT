@@ -85,16 +85,15 @@ const UpdateProduct = ({ editProduct, render, setEditProduct }) => {
         }
     }
     return (
-        <div className='w-full flex flex-col gap-4 relative'>
-            <div className='h-[69px] w-full'></div>
-            <div className='p-4 border-b bg-gray-100 flex justify-between items-center right-0 left-[327px] fixed top-0'>
-                <h1 className='text-3xl font-bold tracking-tight'>Update products</h1>
-                <span className='text-main hover:underline cursor-pointer' onClick={() => setEditProduct(null)} >Cancel</span>
+        <div className='w-full relative'>
+            <div className='py-4 mx-2 w-[98%] border-b-2 border-main'>
+                <h1 className='text-3xl text-center uppercase text-main font-semibold tracking-tight'>cập nhật sản phẩm</h1>
+                <span className='absolute top-5 right-2 text-white bg-main px-2 py-1 rounded hover:bg-yellow-400 hover:-translate-y-1 hover:scale-105 cursor-pointer' onClick={() => setEditProduct(null)} >Cancel</span>
             </div>
-            <div className='p-4'>
+            <div className='p-4 bg-gray-100 '>
                 <form onSubmit={handleSubmit(handleUpdateProduct)}>
                     <InputForm
-                        label='Name product'
+                        label='Tên sản phẩm'
                         register={register}
                         errors={errors}
                         id='title'
@@ -102,11 +101,11 @@ const UpdateProduct = ({ editProduct, render, setEditProduct }) => {
                             required: 'Need fill this field'
                         }}
                         fullWidth
-                        placeholder='Name of new product'
+                        placeholder='NNhập tên sản phẩm'
                     />
                     <div className='w-full my-6 flex gap-4'>
                         <InputForm
-                            label='Price'
+                            label='Giá'
                             register={register}
                             errors={errors}
                             id='price'
@@ -114,11 +113,11 @@ const UpdateProduct = ({ editProduct, render, setEditProduct }) => {
                                 required: 'Need fill this field'
                             }}
                             style='flex-auto'
-                            placeholder='Price of new product'
+                            placeholder='Nhập giá sản phẩm'
                             type='number'
                         />
                         <InputForm
-                            label='Quantity'
+                            label='Số lượng'
                             register={register}
                             errors={errors}
                             id='quantity'
@@ -126,11 +125,11 @@ const UpdateProduct = ({ editProduct, render, setEditProduct }) => {
                                 required: 'Need fill this field'
                             }}
                             style='flex-auto'
-                            placeholder='Quantity of new product'
+                            placeholder='Nhập số lượng'
                             type='number'
                         />
                         <InputForm
-                            label='Color'
+                            label='Màu'
                             register={register}
                             errors={errors}
                             id='color'
@@ -138,12 +137,12 @@ const UpdateProduct = ({ editProduct, render, setEditProduct }) => {
                                 required: 'Need fill this field'
                             }}
                             style='flex-auto'
-                            placeholder='color of new product'
+                            placeholder='Nhập màu sắc'
                         />
                     </div>
                     <div className='w-full my-6 flex gap-4'>
                         <Select
-                            label='Category'
+                            label='Loại sản phẩm'
                             options={categories?.map(el => ({ code: el.title, value: el.title }))}
                             register={register}
                             id='category'
@@ -153,7 +152,7 @@ const UpdateProduct = ({ editProduct, render, setEditProduct }) => {
                             fullWidth
                         />
                         <Select
-                            label='Brand (Optional)'
+                            label='Thương hiệu (không bắt buộc)'
                             options={categories?.find(el => el.title === watch('category'))?.brand?.map(el => ({ code: el.toLowerCase(), value: el }))}
                             register={register}
                             id='brand'
@@ -165,13 +164,13 @@ const UpdateProduct = ({ editProduct, render, setEditProduct }) => {
                     <MarkdownEditor
                         name='description'
                         changeValue={changeValue}
-                        label='Description'
+                        label='Mô tả sản phẩm'
                         invalidFields={invalidFields}
                         setInvalidFields={setInvalidFields}
                         value={payload.description}
                     />
                     <div className='flex flex-col gap-2 mt-8'>
-                        <label className='font-semibold' htmlFor="thumb">Upload thumb</label>
+                        <label className='font-semibold' htmlFor="thumb">Tải ảnh đại diện</label>
                         <input
                             type="file"
                             id="thumb"
@@ -183,7 +182,7 @@ const UpdateProduct = ({ editProduct, render, setEditProduct }) => {
                         <img src={preview.thumb} alt="thumbnail" className='w-[200px] object-contain' />
                     </div>}
                     <div className='flex flex-col gap-2 mt-8'>
-                        <label className='font-semibold' htmlFor="products">Upload images of product</label>
+                        <label className='font-semibold' htmlFor="products">Tải lên danh sách ảnh của sản phẩm</label>
                         <input
                             type="file"
                             id="products"
@@ -202,7 +201,7 @@ const UpdateProduct = ({ editProduct, render, setEditProduct }) => {
                             </div>
                         ))}
                     </div>}
-                    <div className='my-6'><Button type='submit'>Update new product</Button></div>
+                    <div className='my-6 font-semibold'><Button type='submit'>Cập nhật sản phẩm</Button></div>
                 </form>
             </div>
         </div>
