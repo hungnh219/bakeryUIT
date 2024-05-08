@@ -1,5 +1,5 @@
 import React, { memo, useRef, useEffect, useState } from 'react'
-import logo from 'assets/logo.png'
+import logo from 'assets/logo-uit-cake.png'
 import { voteOptions } from 'ultils/contants'
 import { AiFillStar } from 'react-icons/ai'
 import { Button } from 'components'
@@ -15,16 +15,16 @@ const VoteOption = ({ nameProduct, handleSubmitVoteOption }) => {
     }, [])
     return (
         <div onClick={e => e.stopPropagation()} ref={modalRef} className='bg-white w-[700px] p-4 flex-col gap-4 flex items-center justify-center'>
-            <img src={logo} alt="logo" className='w-[300px] my-8 object-contain' />
-            <h2 className='text-center text-medium text-lg'>{`Voting product ${nameProduct}`}</h2>
+            <img src={logo} alt="logo" className='w-[260px] object-contain' />
+            <h2 className='text-center text-medium text-lg'>{`Đánh giá sản phẩm ${nameProduct}`}</h2>
             <textarea
                 className='form-textarea w-full placeholder:italic placeholder:text-xs placeholder:text-gray-500 text-sm'
-                placeholder='Type something'
+                placeholder='Hãy viết bình luận của bạn...'
                 value={comment}
                 onChange={e => setComment(e.target.value)}
             ></textarea>
             <div className='w-full flex flex-col gap-4'>
-                <p>How do you like this product?</p>
+                <p>Bạn thích sản phẩm này ở mức nào?</p>
                 <div className='flex justify-center gap-4 items-center'>
                     {voteOptions.map(el => (
                         <div
@@ -44,7 +44,7 @@ const VoteOption = ({ nameProduct, handleSubmitVoteOption }) => {
                 handleOnClick={() => handleSubmitVoteOption({ comment, score })}
                 fw
             >
-                Submit
+                Gửi
             </Button>
         </div>
     )
