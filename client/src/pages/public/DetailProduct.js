@@ -358,7 +358,7 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
             </div>
             <div>
               <Button handleOnClick={handleAddToCart} fw>
-                Add to Cart
+                Thêm vào giỏ hàng
               </Button>
               <Button
                 // handleOnClick={() => {
@@ -368,7 +368,7 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
                 handleOnClick={handleBuyNow}
                 fw
               >
-                Buy Now
+                Mua Ngay
               </Button>
             </div>
           </div>
