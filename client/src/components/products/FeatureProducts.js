@@ -25,26 +25,38 @@ const FeatureProducts = () => {
         ))}
       </div>
       <div className="grid grid-cols-4 grid-rows-2 gap-4">
-        <img
-          src="https://cdn.shopify.com/s/files/1/1903/4853/files/banner1-bottom-home2_b96bc752-67d4-45a5-ac32-49dc691b1958_600x.jpg?v=1613166661"
-          alt=""
-          className="w-full h-full object-cover col-span-2 row-span-2"
-        />
-        <img
-          src="https://cdn.shopify.com/s/files/1/1903/4853/files/banner2-bottom-home2_400x.jpg?v=1613166661"
-          alt=""
-          className="w-full h-full object-cover col-span-1 row-span-1"
-        />
-        <img
-          src="https://cdn.shopify.com/s/files/1/1903/4853/files/banner4-bottom-home2_92e12df0-500c-4897-882a-7d061bb417fd_400x.jpg?v=1613166661"
-          alt=""
-          className="w-full h-full object-cover col-span-1 row-span-2"
-        />
-        <img
-          src="https://cdn.shopify.com/s/files/1/1903/4853/files/banner3-bottom-home2_400x.jpg?v=1613166661"
-          alt=""
-          className="w-full h-full object-cover col-span-1 row-span-1"
-        />
+        <div className="col-span-2 row-span-2 relative rounded">
+          <span className="absolute top-2 right-4 py-1 px-2 text-white rounded-md bg-gray-600 bg-opacity-50">Bánh mì cà rốt nhân cherry</span>
+          <img
+            src="https://monabakery.monamedia.net/wp-content/uploads/2023/12/Images2.jpg"
+            alt="banh-mi-carot-nhan-cherry"
+            className="w-full h-full object-cover rounded "
+          />
+        </div>
+        <div className="col-span-1 row-span-1 relative rounded">
+        <span className="absolute top-2 left-2 py-1 px-2 text-white rounded-md bg-gray-600 bg-opacity-50">Bánh mì nguyên hạt</span>
+          <img
+            src="https://monabakery.monamedia.net/wp-content/uploads/2023/12/Images08.jpg"
+            alt="banh-mi-nguyen-hat"
+            className="w-full h-full object-cover rounded"
+          />
+        </div>
+        <div className="col-span-1 row-span-2 relative rounded">
+        <span className="absolute top-2 left-2 py-1 px-2 text-white rounded-md bg-gray-600 bg-opacity-50">Bánh bông lan kem</span>
+          <img
+            src="https://monabakery.monamedia.net/wp-content/uploads/2023/12/Images06.jpg"
+            alt="banh-bong-lan-kem"
+            className="w-full h-full object-cover rounded"
+          />
+        </div>
+        <div className="col-span-1 row-span-1 relative rounded">
+        <span className="absolute top-2 left-2 py-1 px-2 text-white rounded-md bg-gray-600 bg-opacity-50">Bánh mì thô</span>
+          <img
+            src="https://monabakery.monamedia.net/wp-content/uploads/2023/12/Images23.jpg"
+            alt="banh-mi-tho"
+            className="w-full h-full object-cover rounded"
+          />
+        </div>
       </div>
     </div>
   )

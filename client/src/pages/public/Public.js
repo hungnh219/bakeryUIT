@@ -8,7 +8,7 @@ const Public = () => {
         <div className='max-h-screen overflow-y-auto flex flex-col items-center'>
             <TopHeaders />
             <div className='w-full shadow-lg flex justify-center'><Header /></div>
-            <div className='w-full flex items-center flex-col'>
+            <div className='w-full flex items-center flex-col mt-[120px]'>
                 <Outlet />
             </div>
             <Footer />

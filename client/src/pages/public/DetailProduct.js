@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useRef, useState } from "react"
-import { createSearchParams, useParams } from "react-router-dom"
-import { apiGetProduct, apiGetProducts, apiUpdateCart } from "apis"
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { createSearchParams, useParams } from "react-router-dom";
+import { apiGetProduct, apiGetProducts, apiUpdateCart } from "apis";
 import {
   Breadcrumb,
   Button,
@@ -8,19 +8,20 @@ import {
   ProductExtraInfoItem,
   ProductInfomation,
   CustomSlider,
-} from "components"
-import Slider from "react-slick"
-import ReactImageMagnify from "react-image-magnify"
-import { formatMoney, fotmatPrice, renderStarFromNumber } from "ultils/helpers"
-import { productExtraInfomation } from "ultils/contants"
-import DOMPurify from "dompurify"
-import clsx from "clsx"
-import { useSelector } from "react-redux"
-import withBaseComponent from "hocs/withBaseComponent"
-import { getCurrent } from "store/user/asyncActions"
-import { toast } from "react-toastify"
-import path from "ultils/path"
-import Swal from "sweetalert2"
+} from "components";
+import Slider from "react-slick";
+import ReactImageMagnify from "react-image-magnify";
+import { formatMoney, fotmatPrice, renderStarFromNumber } from "ultils/helpers";
+import { productExtraInfomation } from "ultils/contants";
+import DOMPurify from "dompurify";
+import clsx from "clsx";
+import { useSelector } from "react-redux";
+import withBaseComponent from "hocs/withBaseComponent";
+import { getCurrent } from "store/user/asyncActions";
+import { toast } from "react-toastify";
+import path from "ultils/path";
+import Swal from "sweetalert2";
+import { showCart } from "store/app/appSlice";
 
 const settings = {
   dots: false,
@@ -28,43 +29,43 @@ const settings = {
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1,
-}
+};
 
 const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
-  const titleRef = useRef()
-  const params = useParams()
-  const { current } = useSelector((state) => state.user)
-  const [product, setProduct] = useState(null)
-  const [currentImage, setCurrentImage] = useState(null)
-  const [quantity, setQuantity] = useState(1)
-  const [relatedProducts, setRelatedProducts] = useState(null)
-  const [update, setUpdate] = useState(false)
-  const [varriant, setVarriant] = useState(null)
-  const [pid, setPid] = useState(null)
-  const [category, setCategory] = useState(null)
+  const titleRef = useRef();
+  const params = useParams();
+  const { current } = useSelector((state) => state.user);
+  const [product, setProduct] = useState(null);
+  const [currentImage, setCurrentImage] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const [relatedProducts, setRelatedProducts] = useState(null);
+  const [update, setUpdate] = useState(false);
+  const [varriant, setVarriant] = useState(null);
+  const [pid, setPid] = useState(null);
+  const [category, setCategory] = useState(null);
   const [currentProduct, setCurrentProduct] = useState({
     title: "",
     thumb: "",
     images: [],
     price: "",
     color: "",
-  })
+  });
   useEffect(() => {
     if (data) {
-      setPid(data.pid)
-      setCategory(data.category)
+      setPid(data.pid);
+      setCategory(data.category);
     } else if (params && params.pid) {
-      setPid(params.pid)
-      setCategory(params.category)
+      setPid(params.pid);
+      setCategory(params.category);
     }
-  }, [data, params])
+  }, [data, params]);
   const fetchProductData = async () => {
-    const response = await apiGetProduct(pid)
+    const response = await apiGetProduct(pid);
     if (response.success) {
-      setProduct(response.productData)
-      setCurrentImage(response.productData?.thumb)
+      setProduct(response.productData);
+      setCurrentImage(response.productData?.thumb);
     }
-  }
+  };
   useEffect(() => {
     if (varriant) {
       setCurrentProduct({
@@ -73,7 +74,7 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
         images: product?.varriants?.find((el) => el.sku === varriant)?.images,
         price: product?.varriants?.find((el) => el.sku === varriant)?.price,
         thumb: product?.varriants?.find((el) => el.sku === varriant)?.thumb,
-      })
+      });
     } else {
       setCurrentProduct({
         title: product?.title,
@@ -81,51 +82,54 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
         images: product?.images || [],
         price: product?.price,
         thumb: product?.thumb,
-      })
+      });
     }
-  }, [varriant, product])
+  }, [varriant, product]);
   const fetchProducts = async () => {
-    const response = await apiGetProducts({ category })
-    if (response.success) setRelatedProducts(response.products)
-  }
+    const response = await apiGetProducts({ category });
+    if (response.success) setRelatedProducts(response.products);
+  };
   useEffect(() => {
     if (pid) {
-      fetchProductData()
-      fetchProducts()
+      fetchProductData();
+      fetchProducts();
     }
-    titleRef.current.scrollIntoView({ block: "center" })
-  }, [pid])
+    titleRef.current.scrollIntoView({ block: "center" });
+  }, [pid]);
   useEffect(() => {
-    if (pid) fetchProductData()
-  }, [update])
+    if (pid) fetchProductData();
+  }, [update]);
   const rerender = useCallback(() => {
-    setUpdate(!update)
-  }, [update])
+    setUpdate(!update);
+  }, [update]);
 
   const handleQuantity = useCallback(
     (number) => {
       if (!Number(number) || Number(number) < 1) {
-        return
+        return;
       } else {
-        setQuantity(number)
+        setQuantity(number);
       }
     },
     [quantity]
-  )
+  );
   const handleChangeQuantity = useCallback(
     (flag) => {
-      if (flag === "minus" && quantity === 1) return
-      if (flag === "minus") setQuantity((prev) => +prev - 1)
-      if (flag === "plus") setQuantity((prev) => +prev + 1)
+      if (flag === "minus" && quantity === 1) return;
+      if (flag === "minus") setQuantity((prev) => +prev - 1);
+      if (flag === "plus") setQuantity((prev) => +prev + 1);
     },
     [quantity]
-  )
+  );
 
   const handleClickImage = (e, el) => {
-    e.stopPropagation()
-    setCurrentImage(el)
-    console.log(currentImage);
-  }
+    e.stopPropagation();
+    setCurrentImage(el);
+  };
+  //   e.stopPropagation()
+  //   setCurrentImage(el)
+  //   console.log(currentImage);
+  // }
   const handleAddToCart = async () => {
     if (!current)
       return Swal.fire({
@@ -142,8 +146,8 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
             search: createSearchParams({
               redirect: location.pathname,
             }).toString(),
-          })
-      })
+          });
+      });
     const response = await apiUpdateCart({
       pid,
       color: currentProduct.color || product?.color,
@@ -151,12 +155,48 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
       price: currentProduct.price || product.price,
       thumbnail: currentProduct.thumb || product.thumb,
       title: currentProduct.title || product.title,
-    })
+    });
     if (response.success) {
-      toast.success(response.mes)
-      dispatch(getCurrent())
-    } else toast.error(response.mes)
-  }
+      toast.success(response.mes);
+      dispatch(getCurrent());
+    } else toast.error(response.mes);
+  };
+
+  const handleBuyNow = async () => {
+    if (!current) {
+      Swal.fire({
+        title: "Almost...",
+        text: "Please login first!",
+        icon: "info",
+        confirmButtonText: "Go login page",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate({
+            pathname: `/${path.LOGIN}`,
+            search: createSearchParams({
+              redirect: location.pathname,
+            }).toString(),
+          });
+        }
+      });
+      return;
+    } else window.open(`/${path.CHECKOUT}`, "_blank");
+    // Gọi hàm handleAddToCart để thêm sản phẩm vào giỏ hàng
+    const response = await apiUpdateCart({
+      pid,
+      color: currentProduct.color || product?.color,
+      quantity,
+      price: currentProduct.price || product.price,
+      thumbnail: currentProduct.thumb || product.thumb,
+      title: currentProduct.title || product.title,
+    });
+    if (response.success) {
+      toast.success(response.mes);
+      dispatch(getCurrent());
+    } else toast.error(response.mes);
+
+    // Chuyển hướng đến trang thanh toán
+  };
 
   return (
     <div className={clsx("w-full")}>
@@ -183,7 +223,10 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
         )}
       >
         <div
-          className={clsx("flex flex-col gap-4 w-1/2 mr-4", isQuickView && "w-1/2")}
+          className={clsx(
+            "flex flex-col gap-4 w-1/2 mr-4",
+            isQuickView && "w-1/2"
+          )}
         >
           {/* <div className="w-[458px] h-[458px] border flex items-center overflow-hidden"> */}
           <div className="w-full rounded flex items-center ">
@@ -201,13 +244,14 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
                 },
               }}
             /> */}
-            <img src={currentImage} alt="thumbnail" className="w-full rounded shadow-lg h-[400px] object-cover"/>
+            <img
+              src={currentImage}
+              alt="thumbnail"
+              className="w-full rounded shadow-lg h-[400px] object-cover"
+            />
           </div>
           <div className="w-full">
-            <Slider
-              className="image-slider"
-              {...settings}
-            >
+            <Slider className="image-slider" {...settings}>
               {currentProduct.images?.length === 0 &&
                 product?.images?.map((el) => (
                   <div className="mx-auto" key={el}>
@@ -239,7 +283,12 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
             isQuickView && "w-1/2"
           )}
         >
-          <h2 className="text-4xl font-semibold">{currentProduct.title || product?.title}</h2>
+          <h2 className="text-[30px] font-semibold">
+            {currentProduct.title || product?.title}
+          </h2>
+          <h2 className="text-4xl font-semibold">
+            {currentProduct.title || product?.title}
+          </h2>
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold">{`${formatMoney(
               fotmatPrice(currentProduct.price || product?.price)
@@ -319,9 +368,24 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
                 handleChangeQuantity={handleChangeQuantity}
               />
             </div>
-            <div className="">
+            {/* <div className="">
               <Button handleOnClick={handleAddToCart} fw>
                 Thêm vào giỏ hàng
+              </Button>
+            </div> */}
+            <div>
+              <Button handleOnClick={handleAddToCart} fw>
+                Thêm vào giỏ hàng
+              </Button>
+              <Button
+                // handleOnClick={() => {
+                //   // dispatch(showCart());
+                //   navigate(`/${path.MEMBER}/${path.MY_CART}`);
+                // }}
+                handleOnClick={handleBuyNow}
+                fw
+              >
+                Mua Ngay
               </Button>
             </div>
           </div>
@@ -341,7 +405,9 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
       </div>
       {!isQuickView && (
         <div className="w-main m-auto mt-20">
-          <h3 className="uppercase border-b-2 border-main text-xl font-semibold py-2">Lượt đánh giá</h3>
+          <h3 className="uppercase border-b-2 border-main text-xl font-semibold py-2">
+            Lượt đánh giá
+          </h3>
           <ProductInfomation
             totalRatings={product?.totalRatings}
             ratings={product?.ratings}
@@ -363,7 +429,7 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default withBaseComponent(DetailProduct)
+export default withBaseComponent(DetailProduct);

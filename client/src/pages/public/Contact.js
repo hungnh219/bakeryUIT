@@ -1,7 +1,5 @@
 import React from "react";
-import bgIamge from "assets/bg-contact.jpg";
 import icons from "ultils/icons";
-import "./styles/contact.css";
 import { Button } from "components";
 
 const { MdLocationOn, RiPhoneFill, MdEmail, FaClock } = icons;
@@ -9,8 +7,8 @@ const { MdLocationOn, RiPhoneFill, MdEmail, FaClock } = icons;
 const Contact = () => {
   return (
     <div className="w-full ">
-      <div className="w-full contact h-[400px] flex justify-center items-center">
-        <span className="text-gray-500 capitalize text-5xl font-semibold">
+      <div className="w-full bg-[url('https://monabakery.monamedia.net/wp-content/uploads/2023/12/Images20.jpg')] h-[400px] flex justify-center items-center">
+        <span className="text-gray-600 capitalize text-5xl font-semibold">
           để lại thông tin liên hệ với UITCake
         </span>
       </div>

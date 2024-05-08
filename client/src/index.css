@@ -63,12 +63,12 @@ body {
 }
 
 .image-slider button.slick-next::before {
-  color: gray;
+  color: rgb(255, 255, 255);
   content: "\276F";
-  background-color: #f3ddb7;
-  border-radius: 50%;
+  background-color: rgb(217 174 101);
   width: 40px;
   height: 40px;
+  border-radius: 50%; 
   font-size: 30px;
   display: flex;
   justify-content: center;
@@ -76,12 +76,12 @@ body {
 }
 
 .image-slider button.slick-prev::before {
-  color: gray;
+  color: rgb(255, 255, 255);
   content: "\276E";
-  background-color: #f3ddb7;
-  border-radius: 50%;
+  background-color: rgb(217 174 101);
   width: 40px;
   height: 40px;
+  border-radius: 50%;
   font-size: 30px;
   display: flex;
   justify-content: center;
