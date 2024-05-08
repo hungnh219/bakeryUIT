@@ -118,3 +118,12 @@ code {
 .my-auto {
   margin: auto 0;
 }
+.custom-bg-color-momo {
+  background-color: #a8266d;
+}
+.custom-bg-color-momohover {
+  background-color: #e7d9e1;
+}
+.font-sf-momo {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}

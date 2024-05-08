@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import axios from "../../axios"
+
 import payment from "assets/payment.svg";
 import { useSelector } from "react-redux";
 import { formatMoney } from "ultils/helpers";
@@ -61,6 +63,43 @@ const Checkout = ({ dispatch, navigate }) => {
                 <span className="text-main font-bold">{current?.address}</span>
               </span>
             </div>
+            <button className="w-full mx-auto custom-bg-color-momo py-3 text-2xl hover:bg-pink-600 font-sf-momo px-4 rounded text-white font-bold" 
+                    onClick={()=>{
+                      
+                      let pr=currentCart?.reduce(
+                        (sum, el) => +el?.price * el.quantity + sum,
+                        0
+                      );
+                      const data = {
+                        priceGlobal: pr
+                      };
+                    
+                      // Gửi yêu cầu POST sử dụng Axios
+                      fetch('http://localhost:5000/api/order/momopayment/', {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                      })
+                      .then(response => {
+                        if (!response.ok) {
+                          throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                      })
+                      .then(data => {
+                        console.log('Response from server:', data);
+                        // Xử lý kết quả nếu cần
+                        window.open(data.payUrl, '_blank');
+                      })
+                      .catch(error => {
+                        console.error('There was a problem with your fetch operation:', error);
+                        // Xử lý lỗi nếu cần
+                      });
+                    }}
+            >momo </button>
+
             <div className="w-full mx-auto">
               <Paypal
                 payload={{
