@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useCallback } from "react"
-import { NavLink, useLocation } from 'react-router-dom'
+import React, { useEffect, useState, useCallback } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   useParams,
   useSearchParams,
   createSearchParams,
   useNavigate,
-} from "react-router-dom"
+} from "react-router-dom";
 import {
   Breadcrumb,
   Product,
@@ -13,77 +13,77 @@ import {
   InputSelect,
   Pagination,
   Sidebar,
-} from "../../components"
-import { apiGetProducts } from "../../apis"
-import Masonry from "react-masonry-css"
-import { sorts } from "../../ultils/contants"
+} from "../../components";
+import { apiGetProducts } from "../../apis";
+import Masonry from "react-masonry-css";
+import { sorts } from "../../ultils/contants";
 
-import NavigationBar from "./NavBar"
+import NavigationBar from "./NavBar";
 
 const breakpointColumnsObj = {
   default: 4,
   1100: 3,
   700: 2,
   500: 1,
-}
+};
 
 const Products = () => {
-  const navigate = useNavigate()
-  const [products, setProducts] = useState(null)
-  const [activeClick, setActiveClick] = useState(null)
-  const [params] = useSearchParams()
-  const [sort, setSort] = useState("")
-  const { category } = useParams()
+  const navigate = useNavigate();
+  const [products, setProducts] = useState(null);
+  const [activeClick, setActiveClick] = useState(null);
+  const [params] = useSearchParams();
+  const [sort, setSort] = useState("");
+  const { category } = useParams();
 
   const fetchProductsByCategory = async (queries) => {
-    if (category && category !== "products") queries.category = category
-    const response = await apiGetProducts(queries)
-    if (response.success) setProducts(response)
-  }
+    if (category && category !== "products") queries.category = category;
+    const response = await apiGetProducts(queries);
+    if (response.success) setProducts(response);
+  };
   useEffect(() => {
-    const queries = Object.fromEntries([...params])
-    let priceQuery = {}
+    const queries = Object.fromEntries([...params]);
+    let priceQuery = {};
     if (queries.to && queries.from) {
       priceQuery = {
         $and: [
           { price: { gte: queries.from } },
           { price: { lte: queries.to } },
         ],
-      }
-      delete queries.price
+      };
+      delete queries.price;
     } else {
-      if (queries.from) queries.price = { gte: queries.from }
-      if (queries.to) queries.price = { lte: queries.to }
+      if (queries.from) queries.price = { gte: queries.from };
+      if (queries.to) queries.price = { lte: queries.to };
     }
 
-    delete queries.to
-    delete queries.from
-    const q = { ...priceQuery, ...queries }
-    fetchProductsByCategory(q)
-    window.scrollTo(0, 0)
-  }, [params])
+    delete queries.to;
+    delete queries.from;
+    const q = { ...priceQuery, ...queries };
+    fetchProductsByCategory(q);
+    window.scrollTo(0, 0);
+  }, [params]);
   const changeActiveFitler = useCallback(
     (name) => {
-      if (activeClick === name) setActiveClick(null)
-      else setActiveClick(name)
+      if (activeClick === name) setActiveClick(null);
+      else setActiveClick(name);
     },
     [activeClick]
-  )
+  );
   const changeValue = useCallback(
     (value) => {
-      setSort(value)
+      setSort(value);
     },
     [sort]
-  )
+  );
 
   useEffect(() => {
     if (sort) {
       navigate({
         pathname: `/${category}`,
         search: createSearchParams({ sort }).toString(),
-      })
+      });
     }
-  }, [sort])
+  }, [sort]);
   return (
     <div className="w-full">
       <div className="h-[81px] flex justify-center items-center bg-gray-100">
@@ -94,9 +94,9 @@ const Products = () => {
       </div>
       {/* <Sidebar /> */}
 
-      <NavigationBar />
+      {/* <NavigationBar /> */}
       <div className="w-main border p-4 flex justify-between mt-8 m-auto">
-        <div className="w-4/5 flex-auto flex flex-col gap-3">
+        <div className="w-1/5 flex-auto flex flex-col gap-3">
           <span className="font-semibold text-sm">Filter by</span>
           <div className="flex items-center gap-4">
             <SearchItem
@@ -112,6 +112,7 @@ const Products = () => {
             />
           </div>
         </div>
+        <NavigationBar />
         <div className="w-1/5 flex flex-col gap-3">
           <span className="font-semibold text-sm">Sort by</span>
           <div className="w-full">
@@ -139,7 +140,7 @@ const Products = () => {
       </div>
       <div className="w-full h-[500px]"></div>
     </div>
-  )
-}
+  );
+};
 
-export default Products
+export default Products;
