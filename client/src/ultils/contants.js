@@ -12,11 +12,11 @@ export const navigation = [
     value: "Menu",
     path: `/${path.PRODUCTS}`,
   },
-  {
-    id: 3,
-    value: "Bài viết",
-    path: `/${path.BLOGS}`,
-  },
+  // {
+  //   id: 3,
+  //   value: "Bài viết",
+  //   path: `/${path.BLOGS}`,
+  // },
   {
     id: 4,
     value: "Giới thiệu",

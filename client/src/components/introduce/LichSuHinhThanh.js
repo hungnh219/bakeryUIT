@@ -8,8 +8,9 @@ function LichSuHinhThanh() {
         <p className="w-3/5 leading-loose tracking-wide text-justify pr-4">
           <span className="text-4xl">UIT Cake</span> được thành lập vào giữa năm
           đầu của thập niên XXI tại trường ĐH CNTT thuộc thành phố Thủ Đức. Cửa
-          hàng được sáng lập với mục đích phục vụ cho việc học tập của một nhóm
-          sinh viên trường UIT. Với mong muốn{" "}
+          hàng được sáng lập với mục đích phục vụ cho việc học tập của{" "}
+          <span className="font-semibold">NHÓM 12</span> lớp IE213.O22 trường
+          UIT. Với mong muốn{" "}
           <span className="uppercase">
             học hỏi, tìm tòi, nghiên cứu và thực thi
           </span>{" "}
