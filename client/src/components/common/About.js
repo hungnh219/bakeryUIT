@@ -28,7 +28,7 @@ function About({showBtn}) {
             đến những trải nghiệm mới mẻ cho khách hàng thân yêu.
           </p>
           {showBtn && <button className="w-[98%] text-center rounded py-1 text-gray-100 font-semibold bg-[#f3c63f] hover:text-white hover:-translate-y-1 hover:scale-105 duration-300">
-            <Link to={`/${path.INTRODUCE}`} className="px-[224px]">
+            <Link to={`/${path.INTRODUCE}`} className="px-[224px]" >
               Xem thêm
             </Link>
           </button>}
