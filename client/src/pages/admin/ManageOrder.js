@@ -79,6 +79,7 @@ const ManageOrder = ({ navigate, location }) => {
             <th className="text-center p-2">Giá trị</th>
             <th className="text-center p-2">Trạng thái</th>
             <th className="text-center p-2">Ngày thanh toán</th>
+            <th className="text-center p-2">Actions</th>
           </tr>
         </thead>
         <tbody className="text-sm ">
@@ -117,6 +118,10 @@ const ManageOrder = ({ navigate, location }) => {
               <td className="text-center py-2">{el.status}</td>
               <td className="text-center py-2">
                 {moment(el.createdAt)?.format("DD/MM/YYYY")}
+              </td>
+              <td className='py-2 text-sm text-center px-4'>
+                <span onClick={() => {}} className='px-2 text-orange-600 hover:underline cursor-pointer'>Sửa</span>
+                <span onClick={() => {}} className='px-2 text-orange-600 hover:underline cursor-pointer'>Xóa</span>
               </td>
             </tr>
           ))}

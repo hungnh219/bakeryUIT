@@ -283,9 +283,9 @@ const DetailProduct = ({ isQuickView, data, location, dispatch, navigate }) => {
             isQuickView && "w-1/2"
           )}
         >
-          <h2 className="text-[30px] font-semibold">
+          {/* <h2 className="text-[30px] font-semibold">
             {currentProduct.title || product?.title}
-          </h2>
+          </h2> */}
           <h2 className="text-4xl font-semibold">
             {currentProduct.title || product?.title}
           </h2>

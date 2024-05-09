@@ -108,13 +108,13 @@ const Personal = ({ navigate }) => {
                     <span className='font-medium'>Ngày hoạt động:</span>
                     <span>{moment(current?.createdAt).fromNow()}</span>
                 </div>
-                {/* <div className='flex flex-col gap-2'>
+                <div className='flex flex-col gap-2'>
                     <span className='font-medium'>Profile image:</span>
                     <label htmlFor="file">
                         <img src={current?.avatar || avatar} alt="avatar" className='w-20 h-20 ml-8 object-cover rounded-full' />
                     </label>
                     <input type="file" id="file" {...register('avatar')} hidden />
-                </div> */}
+                </div>
                 {isDirty && <div className='w-full flex justify-end'><Button type='submit'>Cập nhật thông tin</Button></div>}
             </form>
         </div>
