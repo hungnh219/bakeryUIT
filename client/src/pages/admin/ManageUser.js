@@ -184,7 +184,7 @@ const ManageUser = () => {
                                                 validate={{ required: 'Require fill.' }}
                                                 options={blockStatus}
                                             />
-                                            : <span>{el.isBlocked ? 'Blocked' : 'Active'}</span>}
+                                            : <span>{el.isBlocked ? 'Chặn' : 'Hoạt động'}</span>}
                                     </td>
                                     <td className='py-2 text-sm text-center px-4'>{moment(el.createdAt).format('DD/MM/YYYY')}</td>
                                     <td className='py-2 text-sm text-center px-4'>
