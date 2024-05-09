@@ -1,13 +1,11 @@
 import anhCuaHang from "assets/anh-cuahang.jpg";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import path from "ultils/path";
 
-function About() {
+function About({showBtn}) {
   return (
-    <div className="w-main mt-6 flex flex-col items-center">
-      <h3 className="text-main inline-block mb-4 py-2 font-semibold text-5xl text-center shadow-[0px_4px_0px_0px_rgba(236,193,61,1)]">
-        Giới thiệu
-      </h3>
+    <div className="w-main mx-auto mt-6 flex flex-col items-center">
       <div className="p-4 border flex gap-8 bg-main rounded">
         <img
           src={anhCuaHang}
@@ -29,11 +27,11 @@ function About() {
             nghỉ, chúng tôi cũng luôn cập nhật và thay đổi menu của mình để mang
             đến những trải nghiệm mới mẻ cho khách hàng thân yêu.
           </p>
-            <button className="w-[98%] text-center rounded py-1 text-gray-100 font-semibold bg-[#f3c63f] hover:text-white hover:-translate-y-1 hover:scale-105 duration-300">
-                <Link to={`/${path.INTRODUCE}`} className="px-[224px]">
-                    Xem thêm
-                </Link>
-            </button>
+          {showBtn && <button className="w-[98%] text-center rounded py-1 text-gray-100 font-semibold bg-[#f3c63f] hover:text-white hover:-translate-y-1 hover:scale-105 duration-300">
+            <Link to={`/${path.INTRODUCE}`} className="px-[224px]">
+              Xem thêm
+            </Link>
+          </button>}
         </div>
       </div>
     </div>

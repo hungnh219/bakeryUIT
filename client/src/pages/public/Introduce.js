@@ -1,5 +1,5 @@
 import React from "react";
-import { LichSuHinhThanh, ThanhVienSangLap } from "components";
+import { About, LichSuHinhThanh, ThanhVienSangLap } from "components";
 
 const Introduce = () => {
   return (
@@ -11,7 +11,8 @@ const Introduce = () => {
             className="w-full object-cover"
         />
       </div>
-      <div className="w-full">
+      <div className="w-full flex flex-col gap-y-8">
+        <About />
         <LichSuHinhThanh />
         <ThanhVienSangLap />
       </div>

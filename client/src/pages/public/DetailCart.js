@@ -67,15 +67,15 @@ const DetailCart = ({ location, navigate }) => {
       </div>
       <div className="w-main mx-auto flex flex-col mb-12 justify-center items-end gap-3">
         <span className="flex items-center gap-8 text-sm">
-          <span>Subtotal:</span>
+          <span>Tổng giá trị đơn hàng:</span>
           <span className="text-main font-bold">{`${formatMoney(
             currentCart?.reduce((sum, el) => +el?.price * el.quantity + sum, 0)
           )} VND`}</span>
         </span>
         <span className="text-xs italic">
-          Shipping, taxes, and discounts calculated at checkout
+          Phí vận chuyển, thuế và chiết khấu được tính khi thanh toán
         </span>
-        <Button handleOnClick={handleSubmit}>Checkout</Button>
+        <Button handleOnClick={handleSubmit}>Thanh toán</Button>
       </div>
     </div>
   );

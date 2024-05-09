@@ -119,7 +119,7 @@ const Cart = ({ dispatch, navigate, location }) => {
             handleOnClick={handleSubmit}
             fw={1}
           >
-            Thanh toán
+            Thanh toán ngay
           </Button>
       </div>
     </div>

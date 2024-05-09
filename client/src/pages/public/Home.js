@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Sidebar,
   Banner,
@@ -18,6 +18,7 @@ const Home = ({ navigate }) => {
   const { newProducts } = useSelector((state) => state.products);
   const { categories } = useSelector((state) => state.app);
   const { isLoggedIn, current } = useSelector((state) => state.user);
+  const showBtn = true;
 
   return (
     <div className="w-full ">
@@ -31,8 +32,11 @@ const Home = ({ navigate }) => {
           <BestSeller />
         </div>
       </div>
-      <div className="w-full flex justify-center">
-        <About />
+      <div className="w-full text-center mt-4">
+        <h3 className="text-main inline-block mb-4 py-2 font-semibold text-5xl shadow-[0px_4px_0px_0px_rgba(236,193,61,1)]">
+          Giới thiệu
+        </h3>
+        <About showBtn={showBtn}/>
       </div>
       <div className="my-8 w-main m-auto">
         <FeatureProducts />
